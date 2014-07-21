@@ -136,6 +136,8 @@ public class CustomerService {
 		Map<String, String> map = new HashMap<String, String>();
 		if (customer != null) {
 			String code = authCodeDao.getNewestAuthCodeByTel(tel);
+			//System.out.println("code:"+code);
+			//System.out.println("encode:"+new MD5().getMD5Str(tel+code).substring(0, 8));
 			if (authCode != null && new MD5().getMD5Str(tel+code).substring(0, 8).equals(authCode)) {
 				map.put(STATUS, Message.SUCCESS);
 				List<Device> devices = deviceDao.getDevicesByCustomer(customer);
@@ -167,10 +169,18 @@ public class CustomerService {
 			//tel  error
 			map.put(ERROR_CODE, "02");
 		}
-		ClassParse parse = new ClassParse();
-		Log.error("tel:"+tel+"µÇÂ¼Ê§°Ü£¡");
-		String result = parse.map2String(map);
-		return result;
+		try {
+			ClassParse parse = new ClassParse();
+			Log.error("tel:"+tel+"µÇÂ¼Ê§°Ü£¡");
+			String result = URLEncoder.encode(parse.map2String(map), "UTF-8");
+			return result;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return Message.ERROR;
+		}
+		
+		
 	}
 	
 	@GET

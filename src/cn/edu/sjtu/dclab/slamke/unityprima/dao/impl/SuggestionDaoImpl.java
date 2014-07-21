@@ -28,26 +28,26 @@ public class SuggestionDaoImpl implements ISuggestionDao {
 		Connection con = dbAccess.getConnection();
 		Statement statement = dbAccess.getStatement(con);
 		if (con != null) {
-//			String sql = "insert into "
-//					+ Suggestion.TABLE_NAME
-//					+ " (Num,Content,InsertTime,Contacts,ContactsTel,SMS) values (dbo.GetSuggestionNum(), ?, getdate(), ?, ?, ?) ";
 			String sql = "insert into "
 					+ Suggestion.TABLE_NAME
-					+ " (Num,Content,InsertTime,Contacts,ContactsTel,SMS) values (?, ?, getdate(), ?, ?, ?) ";
+					+ " (Num,Content,InsertTime,Contacts,ContactsTel,SMS) values (dbo.GetSuggestionNum(), ?, getdate(), ?, ?, ?) ";
+//			String sql = "insert into "
+//					+ Suggestion.TABLE_NAME
+//					+ " (Num,Content,InsertTime,Contacts,ContactsTel,SMS) values (?, ?, getdate(), ?, ?, ?) ";
 			try {
 				ps = con.prepareStatement(sql);
 				if (suggestion == null) {
 					return false;
 				}
-				ps.setString(1, ""+System.currentTimeMillis());
-				ps.setString(2, suggestion.getContent());
-				ps.setString(3, suggestion.getContacts());
-				ps.setString(4, suggestion.getContactsTel());
-				ps.setString(5, suggestion.getSMS());
-//				ps.setString(1, suggestion.getContent());
-//				ps.setString(2, suggestion.getContacts());
-//				ps.setString(3, suggestion.getContactsTel());
-//				ps.setString(4, suggestion.getSMS());
+//				ps.setString(1, ""+System.currentTimeMillis());
+//				ps.setString(2, suggestion.getContent());
+//				ps.setString(3, suggestion.getContacts());
+//				ps.setString(4, suggestion.getContactsTel());
+//				ps.setString(5, suggestion.getSMS());
+				ps.setString(1, suggestion.getContent());
+				ps.setString(2, suggestion.getContacts());
+				ps.setString(3, suggestion.getContactsTel());
+				ps.setString(4, suggestion.getSMS());
 				int i = ps.executeUpdate();
 				System.out.println("i=" + i);
 				boolean res = false;

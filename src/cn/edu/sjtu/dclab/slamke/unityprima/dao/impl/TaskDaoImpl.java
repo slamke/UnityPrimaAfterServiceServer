@@ -33,20 +33,20 @@ public class TaskDaoImpl implements ITaskDao {
 		PreparedStatement ps = null;
 		Connection con = dbAccess.getConnection();
 		if (con != null) {
-//			String sql = "insert into "
-//					+ Task.TABLE_NAME
-//					+ " (Num,CustomerNum,Source,DefaultContactor,DefaultContactorTel,DeviceNum,Remark,Status,InsertTime) values (dbo.GetNewTaskNum(?), ?,?,?,?,?,?, ?, getdate()) ";
 			String sql = "insert into "
-			+ Task.TABLE_NAME
-			+ " (Num,CustomerNum,Source,DefaultContactor,DefaultContactorTel,DeviceNum,Remark,Status,InsertTime) values (?, ?,?,?,?,?,?, ?, getdate()) ";
+					+ Task.TABLE_NAME
+					+ " (Num,CustomerNum,Source,DefaultContactor,DefaultContactorTel,DeviceNum,Remark,Status,InsertTime) values (dbo.GetNewTaskNum(?), ?,?,?,?,?,?, ?, getdate()) ";
+//			String sql = "insert into "
+//			+ Task.TABLE_NAME
+//			+ " (Num,CustomerNum,Source,DefaultContactor,DefaultContactorTel,DeviceNum,Remark,Status,InsertTime) values (?, ?,?,?,?,?,?, ?, getdate()) ";
 			try {
 				ps = con.prepareStatement(sql);
 				System.out.println(sql);
 				if (task == null) {
 					return false;
 				}
-				//ps.setString(1, num);
-				ps.setString(1, ""+System.currentTimeMillis());
+				ps.setString(1, num);
+				//ps.setString(1, ""+System.currentTimeMillis());
 				ps.setString(2, task.getCustomerNum());
 				ps.setString(3, task.getSource());
 				ps.setString(4, task.getDefaultContactor());
