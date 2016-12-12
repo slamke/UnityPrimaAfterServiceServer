@@ -21,9 +21,9 @@ public class ProductTypeDaoImpl implements IProductTypeDao {
 	}
 
 
-	/**
-	 * ¸ü¸ÄÎªprepareStatement
-	 */
+    /**
+     * æ›´æ”¹ä¸ºprepareStatement
+     */
 	@Override
 	public List<ProductType> getProductTypesByClass(ProductTypeClass typeClass) {
 		// TODO Auto-generated method stub

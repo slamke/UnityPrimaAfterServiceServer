@@ -33,9 +33,9 @@ public class ConsultInfo implements Serializable
 	
 	@Override
 	public String toString() {
-		return "�豸�ͺŷ��ࣺ" + typeClass.getName() 
-				+ "\n�豸�ͺţ�" + type.getName()
-				+ "\n���ԣ�" + remark;
+        return "设备型号分类：" + typeClass.getName()
+                + "\n设备型号：" + type.getName()
+                + "\n留言：" + remark;
 	}
 
 }

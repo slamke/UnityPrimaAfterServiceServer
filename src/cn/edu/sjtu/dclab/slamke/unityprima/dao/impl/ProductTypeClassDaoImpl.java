@@ -20,9 +20,10 @@ public class ProductTypeClassDaoImpl implements IProductTypeClassDao {
 		// TODO Auto-generated constructor stub
 		dbAccess = new DBAccess(Utils.getDataBaseIP(), Utils.getDataBasePort(),Utils.getDataBaseUser(), Utils.getDataBasePassword(), Utils.getProductDataBase());
 	}
-	/**
-	 * ¸ü¸ÄÎªprepareStatement
-	 */
+	
+    /**
+     * æ›´æ”¹ä¸ºprepareStatement
+     */
 	@Override
 	public List<ProductTypeClass> getAllProductTypeClasses() {
 		// TODO Auto-generated method stub

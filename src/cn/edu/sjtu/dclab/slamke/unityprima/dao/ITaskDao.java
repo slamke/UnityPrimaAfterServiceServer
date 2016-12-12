@@ -17,4 +17,6 @@ public interface ITaskDao {
 	public boolean inertTaskEvaluation(CommentInfo info);
 	
 	public List<Task> getUnClosedAndProgressTasks(String CustomerNum);
+	
+	public String getProgress(String num);
 }

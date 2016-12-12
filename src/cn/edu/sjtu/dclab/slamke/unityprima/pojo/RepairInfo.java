@@ -71,10 +71,11 @@ public class RepairInfo implements Serializable {
 		int year = calendar.get(Calendar.YEAR);
 		int month = calendar.get(Calendar.MONTH)+1;
 		int day = calendar.get(Calendar.DAY_OF_MONTH);
-		return "¹ÊÕÏ·¢ÉúÊ±¼äÎª" + year + "-" + month + "-" + day 
-				+"£¬¹ÊÕÏ²úÆ·ĞòÁĞºÅÎª"+ device.getNum()
-				+"£¬¹ÊÕÏÏÖÏóÎª"
-				+ phoneo + "£¬·¢Éú¹ÊÕÏÇ°ÊÇ·ñ¸Ä¶¯¹ı»úÆ÷»òÆäÏà¹Ø²¿·Ö£º" + (isChange ? "ÊÇ"+ "£¬¸Ä¶¯Îª" + (changeContent == null?"":changeContent) : "·ñ¡£")
+        return "æ•…éšœå‘ç”Ÿæ—¶é—´ä¸º" + year + "-" + month + "-" + day
+                + "ï¼Œæ•…éšœäº§å“åºåˆ—å·ä¸º" + device.getNum()
+                + "ï¼Œæ•…éšœç°è±¡ä¸º"
+                + phoneo + "ï¼Œå‘ç”Ÿæ•…éšœå‰æ˜¯å¦æ”¹åŠ¨è¿‡æœºå™¨æˆ–å…¶ç›¸å…³éƒ¨åˆ†ï¼š"
+                + (isChange ? "æ˜¯" + "ï¼Œæ”¹åŠ¨ä¸º" + (changeContent == null ? "" : changeContent) : "å¦ã€‚")
 				;
 	}
 }

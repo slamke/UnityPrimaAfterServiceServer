@@ -20,6 +20,7 @@ public class AuthCodeDaoImpl implements IAuthCodeDao {
 				Utils.getDataBaseUser(), Utils.getDataBasePassword(),
 				Utils.getCustomerDataBase());
 	}
+
 	@Override
 	public boolean insertAuthCode(AuthCode authCode) {
 		// TODO Auto-generated method stub

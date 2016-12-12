@@ -12,20 +12,21 @@ public class DBAccess {
 	private static Statement statement = null;
 	private static ResultSet set = null;
 
-	// ¼ÓÔØSqlServer JDBCÇı¶¯
+    // åŠ è½½SqlServer JDBCé©±åŠ¨
 	private static String driverNameOfSqlServer = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-	// IPµØÖ·(¸ÄÎª×Ô¼ºµÄIPµØÖ·)
+    // IPåœ°å€(æ”¹ä¸ºè‡ªå·±çš„IPåœ°å€)
 	private String DatabaseIP;
 	
 	private String DatabasePort;
-	// Êı¾İ¿âÓÃ»§Ãû
+    // æ•°æ®åº“ç”¨æˆ·å
 	private String DatabaseUser;
-	// Êı¾İ¿âÃÜÂë
+    // æ•°æ®åº“å¯†ç 
 	private String DatabasePassword;
-	// Êı¾İ¿âÃû³Æ
+    // æ•°æ®åº“åç§°
 	private String DatabaseName;
 	// URL
-	private String DatabaseUrl = "jdbc:sqlserver://" + DatabaseIP + ":"+DatabasePort+";DatabaseName = " + DatabaseName;
+    private String DatabaseUrl = "jdbc:sqlserver://" + DatabaseIP + ":" + DatabasePort + ";DatabaseName="
+            + DatabaseName;
 
 	
 	
@@ -37,59 +38,64 @@ public class DBAccess {
 		DatabaseUser = databaseUser;
 		DatabasePassword = databasePassword;
 		DatabaseName = databaseName;
-		DatabaseUrl = "jdbc:sqlserver://" + DatabaseIP + ":1433;DatabaseName = " + DatabaseName;
+        DatabaseUrl = "jdbc:sqlserver://" + DatabaseIP + ":" + DatabasePort + ";DatabaseName=" + DatabaseName;
 	}
-	//»ñÈ¡Ò»¸öÊı¾İ¿âµÄÁ¬½Ó
+
+    // è·å–ä¸€ä¸ªæ•°æ®åº“çš„è¿æ¥
 	public Connection getConnection() {
 		try {
-			//×¢²áÇı¶¯³ÌĞò
+            // æ³¨å†Œé©±åŠ¨ç¨‹åº
 			Class.forName(driverNameOfSqlServer);
-			// »ñÈ¡Á¬½Ó
+            // è·å–è¿æ¥
 			con = DriverManager.getConnection(DatabaseUrl, DatabaseUser,DatabasePassword);
 		} catch (Exception e) {
-			System.out.println("getConnection³öÏÖ´íÎó");
+            System.out.println("getConnectionå‡ºç°é”™è¯¯");
 			e.printStackTrace();
 		}
 		return con;
 	}
-	//´´½¨»á»°
+
+    // åˆ›å»ºä¼šè¯
 	public Statement getStatement(Connection con){
 		if(con != null){
 			try {
 				statement = con.createStatement();
 				return statement;
 			} catch (SQLException e) {
-				System.out.println("getStatement³öÏÖ´íÎó");
+                System.out.println("getStatementå‡ºç°é”™è¯¯");
 				e.printStackTrace();
 			}
 		}
 		return null;
 	}
-	//²éÑ¯
+
+    // æŸ¥è¯¢
 	public ResultSet getResultSetQuery(Statement statement,String sql) {
 		if(statement != null){
 			try {
 				set = statement.executeQuery(sql);
 				return set;
 			} catch (SQLException e) {
-				System.out.println("getResultSetQuery³öÏÖ´íÎó");
+                System.out.println("getResultSetQueryå‡ºç°é”™è¯¯");
 				e.printStackTrace();
 			}
 		}
 		return null;
 	}
-	//Ôö¼Ó£¬ĞŞ¸Ä£¬É¾³ı¼ÇÂ¼
+
+    // å¢åŠ ï¼Œä¿®æ”¹ï¼Œåˆ é™¤è®°å½•
 	public void getResultSetUpdate(Statement statement,String sql) {
 		if(statement != null){
 			try {
 				statement.executeUpdate(sql);
 			} catch (SQLException e) {
-				System.out.println("getResultSetUpdate³öÏÖ´íÎó");
+                System.out.println("getResultSetUpdateå‡ºç°é”™è¯¯");
 				e.printStackTrace();
 			}
 		}
 	}
-	//¹Ø±ÕÁ¬½Ó
+
+    // å…³é—­è¿æ¥
 	public static void close(Connection con){
 		if(con != null){
 			try {
@@ -99,7 +105,8 @@ public class DBAccess {
 			}
 		}
 	}
-	//¹Ø±Õ»á»°
+
+    // å…³é—­ä¼šè¯
 	public static void close(Statement  statement){
 		if(statement != null){
 			try {
@@ -109,7 +116,8 @@ public class DBAccess {
 			}
 		}
 	}
-	//¹Ø±Õ²éÑ¯¼¯
+
+    // å…³é—­æŸ¥è¯¢é›†
 	public static void close(ResultSet set){
 		if(set != null){
 			try {
@@ -120,25 +128,25 @@ public class DBAccess {
 		}
 	}
 	
-	// ÊÍ·ÅÁ¬½Ó
+    // é‡Šæ”¾è¿æ¥
     public static void free(ResultSet rs, Statement st, Connection conn) {
         try {
             if (rs != null) {
-                rs.close(); // ¹Ø±Õ½á¹û¼¯
+                rs.close(); // å…³é—­ç»“æœé›†
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             try {
                 if (st != null) {
-                    st.close(); // ¹Ø±ÕStatement
+                    st.close(); // å…³é—­Statement
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
             } finally {
                 try {
                     if (conn != null) {
-                        conn.close(); // ¹Ø±ÕÁ¬½Ó
+                        conn.close(); // å…³é—­è¿æ¥
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();

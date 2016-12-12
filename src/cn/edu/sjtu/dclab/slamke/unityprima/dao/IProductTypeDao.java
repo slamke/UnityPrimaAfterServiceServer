@@ -6,12 +6,12 @@ import cn.edu.sjtu.dclab.slamke.unityprima.domain.ProductType;
 import cn.edu.sjtu.dclab.slamke.unityprima.domain.ProductTypeClass;
 
 public interface IProductTypeDao {
-	/**
-	 * »ñÈ¡Ä³classµÄÈ«²¿Éè±¸ĞÍºÅ£¨ÓÃÓÚ×ÉÑ¯£©
-	 * 
-	 * @param typeClass
-	 * @return
-	 */
-	public List<ProductType> getProductTypesByClass(ProductTypeClass typeClass);
+    /**
+     * è·å–æŸclassçš„å…¨éƒ¨è®¾å¤‡å‹å·ï¼ˆç”¨äºå’¨è¯¢ï¼‰
+     * 
+     * @param typeClass
+     * @return
+     */
+    public List<ProductType> getProductTypesByClass(ProductTypeClass typeClass);
 
 }

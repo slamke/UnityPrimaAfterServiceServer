@@ -19,9 +19,10 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 				Utils.getDataBaseUser(), Utils.getDataBasePassword(),
 				Utils.getEmployeeDataBase());
 	}
-	/**
-	 * ¸ü¸ÄÎªprepareStatement
-	 */
+	
+    /**
+     * æ›´æ”¹ä¸ºprepareStatement
+     */
 	@Override
 	public Employee getEmployeeByNum(String num) {
 		// TODO Auto-generated method stub		

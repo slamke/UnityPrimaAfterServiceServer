@@ -4,32 +4,33 @@ import java.io.Serializable;
 
 public class ComplaintInfo implements Serializable 
 {
-	private static final long serialVersionUID = 23L;
+    private static final long serialVersionUID = 23L;
 
-	private String content;
+    private String content;
 
-	public String getContent() {
-		return content;
-	}
+    public String getContent() {
+        return content;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
-	public ComplaintInfo() {
-		super();
-	}
-	
-	public ComplaintInfo(String content) {
-		super();
-		this.content = content;
-	}
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-	@Override
-	public String toString() {
-		return "ÄÚÈÝ£º"+content;
-	}
-	
-	public String toMessage() {
-		return "GKTS\n" +content;
-	}
+    public ComplaintInfo() {
+        super();
+    }
+
+    public ComplaintInfo(String content) {
+        super();
+        this.content = content;
+    }
+
+    @Override
+    public String toString() {
+        return "å†…å®¹ï¼š" + content;
+    }
+
+    public String toMessage() {
+        return "GKTS\n" + content;
+    }
 }

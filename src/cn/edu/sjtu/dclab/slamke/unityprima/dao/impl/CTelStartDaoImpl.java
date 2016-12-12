@@ -20,9 +20,10 @@ public class CTelStartDaoImpl implements ICTelStartDao {
 				Utils.getDataBaseUser(), Utils.getDataBasePassword(),
 				Utils.getEmployeeDataBase());
 	}
-	/**
-	 * ¸ü¸ÄÎªprepareStatement
-	 */
+	
+    /**
+     * æ›´æ”¹ä¸ºprepareStatement
+     */
 	@Override
 	public CTelStart getCTelStartByNum(String num) {
 		// TODO Auto-generated method stub
@@ -43,8 +44,11 @@ public class CTelStartDaoImpl implements ICTelStartDao {
             	telStart = new CTelStart();
             	String AlisaNo = rs.getString("AlisaNo");
             	String Supplier = rs.getString("Supplier");
-            	telStart.setAlisaNo(AlisaNo);
+            	String AcceptNum = rs.getString("AcceptNum");
+            	//telStart.setAlisaNo(AlisaNo);
+            	telStart.setAlisaNo(AcceptNum);
             	telStart.setSupplier(Supplier);
+            	telStart.setAcceptNum(AcceptNum);
             }  
             DBAccess.close(rs);
             DBAccess.close(statement);

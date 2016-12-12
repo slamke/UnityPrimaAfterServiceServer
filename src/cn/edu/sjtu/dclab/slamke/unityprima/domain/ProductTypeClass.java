@@ -3,57 +3,63 @@ package cn.edu.sjtu.dclab.slamke.unityprima.domain;
 import java.util.List;
 
 /**
- * Éè±¸ĞÍºÅ·ÖÀà±í ±íÃû£ºtb_ProductTypeClass ËùÔÚÊı¾İ¿â£ºSUPMID
+ * è®¾å¤‡å‹å·åˆ†ç±»è¡¨ è¡¨åï¼štb_ProductTypeClass æ‰€åœ¨æ•°æ®åº“ï¼šSUPMID
+ * 
  * @author sunke
- *
+ * 
  */
 public class ProductTypeClass {
-	
-	public static final String TABLE_NAME = "tb_ProductTypeClass";
-	/**
-	 * Num	±àºÅ	nvarchar(50)	Ö÷¼ü
-	 */
-	private String num;
-	/**
-	 * Name	Ãû³Æ	nvarchar(100)	·Ç¿Õ
-	 */
-	private String  name;
-	/**
-	 * Remark	ÀàĞÍ	nvarchar(1000)	¿É¿Õ
-	 */
-	private String  remark;
-	
-	private List<ProductType> types;
-	
-	
-	public List<ProductType> getTypes() {
-		return types;
-	}
-	public void setTypes(List<ProductType> types) {
-		this.types = types;
-	}
-	public String getNum() {
-		return num;
-	}
-	public void setNum(String num) {
-		this.num = num;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getRemark() {
-		return remark;
-	}
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
-	public ProductTypeClass() {
-		super();
-	}
-	
-	
-	
+
+    public static final String TABLE_NAME = "tb_ProductTypeClass";
+    /**
+     * Num ç¼–å· nvarchar(50) ä¸»é”®
+     */
+    private String num;
+    /**
+     * Name åç§° nvarchar(100) éç©º
+     */
+    private String name;
+    /**
+     * Remark ç±»å‹ nvarchar(1000) å¯ç©º
+     */
+    private String remark;
+
+    private List<ProductType> types;
+
+    public List<ProductType> getTypes() {
+        return types;
+    }
+
+    public void setTypes(List<ProductType> types) {
+        this.types = types;
+    }
+
+    public String getNum() {
+        return num;
+    }
+
+    public void setNum(String num) {
+        this.num = num;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public ProductTypeClass() {
+        super();
+    }
+
 }

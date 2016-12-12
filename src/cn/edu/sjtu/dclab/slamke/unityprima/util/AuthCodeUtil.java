@@ -3,19 +3,19 @@ package cn.edu.sjtu.dclab.slamke.unityprima.util;
 import java.util.Random;
 
 public class AuthCodeUtil {
-	private AuthCodeUtil() {
-	}
+    private AuthCodeUtil() {
+    }
 
-	public static String getAuthCode() {
-		String str = "0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z";
-		String str2[] = str.split(",");// ½«×Ö·û´®ÒÔ,·Ö¸î
-		Random rand = new Random();// ´´½¨RandomÀàµÄ¶ÔÏórand
-		int index = 0;
-		StringBuffer randStr = new StringBuffer();// ´´½¨ÄÚÈİÎª¿Õ×Ö·û´®¶ÔÏórandStr
-		for (int i = 0; i < 6; ++i) {
-			index = rand.nextInt(str2.length - 1);// ÔÚ0µ½str2.length-1Éú³ÉÒ»¸öÎ±Ëæ»úÊı¸³Öµ¸øindex
-			randStr.append(str2[index]);// ½«¶ÔÓ¦Ë÷ÒıµÄÊı×éÓërandStrµÄ±äÁ¿ÖµÏàÁ¬½Ó
-		}
-		return randStr.toString();
-	}
+    public static String getAuthCode() {
+        String str = "0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z";
+        String str2[] = str.split(",");// å°†å­—ç¬¦ä¸²ä»¥,åˆ†å‰²
+        Random rand = new Random();// åˆ›å»ºRandomç±»çš„å¯¹è±¡rand
+        int index = 0;
+        StringBuffer randStr = new StringBuffer();// åˆ›å»ºå†…å®¹ä¸ºç©ºå­—ç¬¦ä¸²å¯¹è±¡randStr
+        for (int i = 0; i < 6; ++i) {
+            index = rand.nextInt(str2.length - 1);// åœ¨0åˆ°str2.length-1ç”Ÿæˆä¸€ä¸ªä¼ªéšæœºæ•°èµ‹å€¼ç»™index
+            randStr.append(str2[index]);// å°†å¯¹åº”ç´¢å¼•çš„æ•°ç»„ä¸randStrçš„å˜é‡å€¼ç›¸è¿æ¥
+        }
+        return randStr.toString();
+    }
 }

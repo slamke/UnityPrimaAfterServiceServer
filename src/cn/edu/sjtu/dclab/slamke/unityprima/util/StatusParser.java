@@ -1,21 +1,21 @@
 package cn.edu.sjtu.dclab.slamke.unityprima.util;
 
 public class StatusParser {
-	private StatusParser() {
-	}
+    private StatusParser() {
+    }
 
-	public static String getStatus(String input) {
-		if (input.equals("Î´´¦Àí")) {
-			return "ÕıÔÚ·ÖÎöÅĞ¶Ï";
-		} else if (input.equals("·ÖÎöÅĞ¶Ï")) {
-			return "ÕıÔÚÏÂ´ï";
-		} else if (input.equals("ÏÂ´ï")) {
-			return "ÒÑÏÂ´ï£¬¹¤³ÌÊ¦ÕıÔÚÍ¾ÖĞ";
-		} else if (input.equals("Ö´ĞĞÖĞ")) {
-			return "Ö´ĞĞÖĞ";
-		} else if (input.equals("Íê³É")) {
-			return "Íê³É";
-		}
-		return "ÕıÔÚ·ÖÎöÅĞ¶Ï";
-	}
+    public static String getStatus(String input) {
+        if (input.equals("æœªå¤„ç†")) {
+            return "æ­£åœ¨åˆ†æåˆ¤æ–­";
+        } else if (input.equals("åˆ†æåˆ¤æ–­")) {
+            return "æ­£åœ¨ä¸‹è¾¾";
+        } else if (input.equals("ä¸‹è¾¾")) {
+            return "å·²ä¸‹è¾¾ï¼Œå·¥ç¨‹å¸ˆæ­£åœ¨é€”ä¸­";
+        } else if (input.equals("æ‰§è¡Œä¸­")) {
+            return "æ‰§è¡Œä¸­";
+        } else if (input.equals("å®Œæˆ")) {
+            return "å®Œæˆ";
+        }
+        return "æ­£åœ¨åˆ†æåˆ¤æ–­";
+    }
 }

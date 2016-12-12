@@ -52,39 +52,39 @@ public class UploadService {
 			@FormParam("content") String content) {
 		Customer customer = dao.login(tel);
 		System.out.println("tel:" + tel);
-		Log.debug("tel " + tel + "Ìá³ö½¨Òé");
+        Log.debug("tel " + tel + "æå‡ºå»ºè®®");
 		if (customer != null) {
 			try {
 				content = URLDecoder.decode(content, "UTF-8");
-				Log.debug("tel " + tel + "Ìá³ö½¨Òé£¬ÄÚÈİÎª£º" + content);
+                Log.debug("tel " + tel + "æå‡ºå»ºè®®ï¼Œå†…å®¹ä¸ºï¼š" + content);
 				System.out.println("content:" + content);
 				ClassParse parse = new ClassParse();
 				AdviceInfo info = parse.string2AdviceInfo(content);
 				if (info != null) {
 					Suggestion suggestion = new Suggestion();
-					suggestion.setContacts(customer.getDefaultContactor());
+					suggestion.setContacts(customer.getNameByTel(tel));
 					suggestion.setContactsTel(tel);
 					suggestion
 							.setContent(Const.SUGGESTION_TYPE_ADVICE
-									+ info.getContent() + "(ÀàĞÍ£º"
+                                    + info.getContent() + "(ç±»å‹ï¼š"
 									+ info.getType() + ")");
 					suggestion.setSMS(info.toMessage());
 					suggestionDao.insertSuggestion(suggestion);
-					Log.debug("tel " + tel + "Ìá³ö½¨Òé--³É¹¦");
+                    Log.debug("tel " + tel + "æå‡ºå»ºè®®--æˆåŠŸ");
 					return Message.SUCCESS;
 				} else {
-					Log.error("tel " + tel + "Ìá³ö½¨Òé--Êı¾İ½âÎöÊ§°Ü");
+                    Log.error("tel " + tel + "æå‡ºå»ºè®®--æ•°æ®è§£æå¤±è´¥");
 					System.out.println("parse error!");
 					return Message.ERROR;
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
-				Log.error("tel " + tel + "Ìá³ö½¨Òé--Êı¾İ½âÎöÊ§°Ü");
+                Log.error("tel " + tel + "æå‡ºå»ºè®®--æ•°æ®è§£æå¤±è´¥");
 				e.printStackTrace();
 				return Message.ERROR;
 			}
 		}
-		Log.error("tel " + tel + "Ìá³ö½¨Òé--Éí·İÑéÖ¤Ê§°Ü");
+        Log.error("tel " + tel + "æå‡ºå»ºè®®--èº«ä»½éªŒè¯å¤±è´¥");
 		return Message.ERROR;
 	}
 
@@ -94,35 +94,35 @@ public class UploadService {
 	public String submitComment(@FormParam("tel") String tel,
 			@FormParam("content") String content) {
 		Customer customer = dao.login(tel);
-		Log.debug("tel " + tel + "Ìá³öÆÀ¼Û");
+        Log.debug("tel " + tel + "æå‡ºè¯„ä»·");
 		System.out.println("tel:" + tel);
 		try {
 			content = URLDecoder.decode(content, "UTF-8");
 			System.out.println("content:" + content);
-			Log.debug("tel " + tel + "Ìá³öÆÀ¼Û£¬ÄÚÈİÎª£º" + content);
+            Log.debug("tel " + tel + "æå‡ºè¯„ä»·ï¼Œå†…å®¹ä¸ºï¼š" + content);
 			if (customer != null) {
 				ClassParse parse = new ClassParse();
 				CommentInfo info = parse.string2CommentInfo(content);
 				if (info != null) {
 					boolean result = taskDao.inertTaskEvaluation(info);
-					Log.debug("tel " + tel + "Ìá³öÆÀ¼Û--³É¹¦");
+                    Log.debug("tel " + tel + "æå‡ºè¯„ä»·--æˆåŠŸ");
 					if (result) {
 						return Message.SUCCESS;
 					}else {
 						return Message.ERROR;
 					}
 				} else {
-					Log.error("tel " + tel + "Ìá³öÆÀ¼Û--Êı¾İ½âÎöÊ§°Ü");
+                    Log.error("tel " + tel + "æå‡ºè¯„ä»·--æ•°æ®è§£æå¤±è´¥");
 					System.out.println("parse error!");
 					return Message.ERROR;
 				}
 			} else {
-				Log.error("tel " + tel + "Ìá³öÆÀ¼Û--Éí·İÑéÖ¤Ê§°Ü");
+                Log.error("tel " + tel + "æå‡ºè¯„ä»·--èº«ä»½éªŒè¯å¤±è´¥");
 				return Message.ERROR;
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
-			Log.error("tel " + tel + "Ìá³öÆÀ¼Û--Êı¾İ½âÎöÊ§°Ü");
+            Log.error("tel " + tel + "æå‡ºè¯„ä»·--æ•°æ®è§£æå¤±è´¥");
 			e.printStackTrace();
 			return Message.ERROR;
 		}
@@ -135,36 +135,36 @@ public class UploadService {
 			@FormParam("content") String content) {
 		Customer customer = dao.login(tel);
 		System.out.println("tel:" + tel);
-		Log.debug("tel " + tel + "Ìá³öÍ¶Ëß");
+        Log.debug("tel " + tel + "æå‡ºæŠ•è¯‰");
 		if (customer != null) {
 			try {
 				content = URLDecoder.decode(content, "UTF-8");
-				Log.debug("tel " + tel + "Ìá³öÍ¶Ëß£¬ÄÚÈİÎª£º" + content);
+                Log.debug("tel " + tel + "æå‡ºæŠ•è¯‰ï¼Œå†…å®¹ä¸ºï¼š" + content);
 				System.out.println("content:" + content);
 				ClassParse parse = new ClassParse();
 				ComplaintInfo info = parse.string2ComplaintInfo(content);
 				if (info != null) {
 					Suggestion suggestion = new Suggestion();
-					suggestion.setContacts(customer.getDefaultContactor());
+					suggestion.setContacts(customer.getNameByTel(tel));
 					suggestion.setContactsTel(tel);
 					suggestion.setContent(Const.SUGGESTION_TYPE_COMPLAINT
 							+ info.getContent());
 					suggestion.setSMS(info.toMessage());
 					suggestionDao.insertSuggestion(suggestion);
-					Log.debug("tel " + tel + "Ìá³öÍ¶Ëß--³É¹¦");
+                    Log.debug("tel " + tel + "æå‡ºæŠ•è¯‰--æˆåŠŸ");
 					return Message.SUCCESS;
 				}
-				Log.error("tel " + tel + "Ìá³öÍ¶Ëß£¬Êı¾İ½âÎö´íÎó");
+                Log.error("tel " + tel + "æå‡ºæŠ•è¯‰ï¼Œæ•°æ®è§£æé”™è¯¯");
 				return Message.ERROR;
 			} catch (Exception e) {
 				// TODO: handle exception
-				Log.error("tel " + tel + "Ìá³öÍ¶Ëß£¬Êı¾İ½âÎö´íÎó");
+                Log.error("tel " + tel + "æå‡ºæŠ•è¯‰ï¼Œæ•°æ®è§£æé”™è¯¯");
 				e.printStackTrace();
 				return Message.ERROR;
 			}
 
 		}
-		Log.error("tel " + tel + "Ìá³öÍ¶Ëß--Éí·İÑéÖ¤´íÎó");
+        Log.error("tel " + tel + "æå‡ºæŠ•è¯‰--èº«ä»½éªŒè¯é”™è¯¯");
 		return Message.ERROR;
 	}
 
@@ -175,12 +175,12 @@ public class UploadService {
 			@FormParam("content") String content) {
 		Customer customer = dao.login(tel);
 		System.out.println("tel:" + tel);
-		Log.debug("tel " + tel + "±£ĞŞ");
-		Log.debug("content " + content + "±£ĞŞ");
+        Log.debug("tel " + tel + "ä¿ä¿®");
+        Log.debug("content " + content + "ä¿ä¿®");
 		if (customer != null) {
 			try {
 				content = URLDecoder.decode(content, "UTF-8");
-				Log.debug("tel " + tel + "±£ĞŞ£¬ÄÚÈİÎª£º" + content);
+                Log.debug("tel " + tel + "ä¿ä¿®ï¼Œå†…å®¹ä¸ºï¼š" + content);
 				System.out.println("content:" + content);
 				ClassParse parse = new ClassParse();
 				RepairInfo info = parse.string2RepairInfo(content);
@@ -189,7 +189,7 @@ public class UploadService {
 					DateParse parse2 = new DateParse();
 					String num = "U" + parse2.date2String(new Date());
 					task.setCustomerNum(customer.getNum());
-					task.setDefaultContactor(customer.getDefaultContactor());
+					task.setDefaultContactor(customer.getNameByTel(tel));
 					task.setDefaultContactorTel(tel);
 					if (info.getDevice().getNum().equals("")
 							|| info.getDevice().getNum() != null) {
@@ -201,34 +201,34 @@ public class UploadService {
 					task.setStatus(Const.DEFAULT_WEBSERVICE_STATUS);
 					task.setContent(info.toString());
 					boolean result = taskDao.insertTask(task, num);
-					Log.debug("tel " + tel + "±£ĞŞ--³É¹¦");
+                    Log.debug("tel " + tel + "ä¿ä¿®--æˆåŠŸ");
 					if (result) {
 						return Message.SUCCESS;
 					}else {
 						return Message.ERROR;
 					}
 				} else {
-					Log.debug("tel " + tel + "±£ĞŞ--Êı¾İ½âÎöÊ§°Ü");
+                    Log.debug("tel " + tel + "ä¿ä¿®--æ•°æ®è§£æå¤±è´¥");
 					return Message.ERROR;
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
-				Log.debug("tel " + tel + "±£ĞŞ--Êı¾İ½âÎöÊ§°Ü");
+                Log.debug("tel " + tel + "ä¿ä¿®--æ•°æ®è§£æå¤±è´¥");
 				e.printStackTrace();
 				return Message.ERROR;
 			}
 		}
-		Log.debug("tel " + tel + "±£ĞŞ--Éí·İÑéÖ¤Ê§°Ü");
+        Log.debug("tel " + tel + "ä¿ä¿®--èº«ä»½éªŒè¯å¤±è´¥");
 		return Message.ERROR;
 	}
 
-	/**
-	 * Ìá½»¹ºÂòÅä¼şĞÅÏ¢
-	 * 
-	 * @param tel
-	 * @param content
-	 * @return
-	 */
+	    /**
+     * æäº¤è´­ä¹°é…ä»¶ä¿¡æ¯
+     * 
+     * @param tel
+     * @param content
+     * @return
+     */
 	@POST
 	@Path("/sell")
 	@Produces("application/json")
@@ -239,7 +239,7 @@ public class UploadService {
 		try {
 			content = URLDecoder.decode(content, "UTF-8");
 			System.out.println("content:" + content);
-			Log.debug("tel " + tel + "¹ºÂò±¸¼ş£¬ÄÚÈİÎª£º" + content);
+            Log.debug("tel " + tel + "è´­ä¹°å¤‡ä»¶ï¼Œå†…å®¹ä¸ºï¼š" + content);
 			if (customer != null) {
 				ClassParse parse = new ClassParse();
 				SellInfo info = parse.string2SellInfo(content);
@@ -248,26 +248,26 @@ public class UploadService {
 					DateParse parse2 = new DateParse();
 					String num = "B" + parse2.date2String(new Date());
 					task.setCustomerNum(customer.getNum());
-					task.setDefaultContactor(customer.getDefaultContactor());
+					task.setDefaultContactor(customer.getNameByTel(tel));
 					task.setDefaultContactorTel(tel);
 					task.setSource(Const.DEFAULT_WEBSERVICE_SOURCE);
 					task.setStatus(Const.DEFAULT_WEBSERVICE_STATUS);
 					task.setContent(info.toString());
 					taskDao.insertTask(task, num);
-					Log.debug("tel " + tel + "¹ºÂò±¸¼ş£¬³É¹¦");
+                    Log.debug("tel " + tel + "è´­ä¹°å¤‡ä»¶ï¼ŒæˆåŠŸ");
 					return Message.SUCCESS;
 				} else {
-					Log.debug("tel " + tel + "¹ºÂò±¸¼ş--Êı¾İ½âÎöÊ§°Ü");
+                    Log.debug("tel " + tel + "è´­ä¹°å¤‡ä»¶--æ•°æ®è§£æå¤±è´¥");
 					return Message.ERROR;
 				}
 			} else {
-				Log.debug("tel " + tel + "¹ºÂò±¸¼ş--Éí·İÑéÖ¤Ê§°Ü");
+                Log.debug("tel " + tel + "è´­ä¹°å¤‡ä»¶--èº«ä»½éªŒè¯å¤±è´¥");
 				return Message.ERROR;
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-			Log.debug("tel " + tel + "¹ºÂò±¸¼ş--Êı¾İ½âÎöÊ§°Ü");
+            Log.debug("tel " + tel + "è´­ä¹°å¤‡ä»¶--æ•°æ®è§£æå¤±è´¥");
 			return Message.ERROR;
 		}
 	}
@@ -279,11 +279,11 @@ public class UploadService {
 			@FormParam("content") String content) {
 		Customer customer = dao.login(tel);
 		System.out.println("tel:" + tel);
-		Log.debug("tel " + tel + "×ÉÑ¯");
+        Log.debug("tel " + tel + "å’¨è¯¢");
 		if (customer != null) {
 			try {
 				content = URLDecoder.decode(content, "UTF-8");
-				Log.debug("tel " + tel + "×ÉÑ¯£¬ÄÚÈİÎª£º" + content);
+                Log.debug("tel " + tel + "å’¨è¯¢ï¼Œå†…å®¹ä¸ºï¼š" + content);
 				System.out.println("content:" + content);
 				ClassParse parse = new ClassParse();
 				ConsultInfo info = parse.string2ConsultInfo(content);
@@ -292,26 +292,26 @@ public class UploadService {
 					DateParse parse2 = new DateParse();
 					String num = parse2.date2String(new Date());
 					task.setCustomerNum(customer.getNum());
-					task.setDefaultContactor(customer.getDefaultContactor());
+					task.setDefaultContactor(customer.getNameByTel(tel));
 					task.setDefaultContactorTel(tel);
 					task.setSource(Const.DEFAULT_WEBSERVICE_SOURCE);
 					task.setStatus(Const.DEFAULT_WEBSERVICE_STATUS);
 					task.setContent(info.toString());
 					taskDao.insertTask(task, num);
-					Log.debug("tel " + tel + "×ÉÑ¯--³É¹¦");
+                    Log.debug("tel " + tel + "å’¨è¯¢--æˆåŠŸ");
 					return Message.SUCCESS;
 				} else {
-					Log.debug("tel " + tel + "×ÉÑ¯--Êı¾İ½âÎöÊ§°Ü");
+                    Log.debug("tel " + tel + "å’¨è¯¢--æ•°æ®è§£æå¤±è´¥");
 					return Message.ERROR;
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
-				Log.debug("tel " + tel + "×ÉÑ¯--Êı¾İ½âÎöÊ§°Ü");
+                Log.debug("tel " + tel + "å’¨è¯¢--æ•°æ®è§£æå¤±è´¥");
 				return Message.ERROR;
 			}
 		}
-		Log.debug("tel " + tel + "×ÉÑ¯--Éí·İÑéÖ¤Ê§°Ü");
+        Log.debug("tel " + tel + "å’¨è¯¢--èº«ä»½éªŒè¯å¤±è´¥");
 		return Message.ERROR;
 	}
 }

@@ -3,10 +3,11 @@ package cn.edu.sjtu.dclab.slamke.unityprima.dao;
 import cn.edu.sjtu.dclab.slamke.unityprima.domain.TaskPerson;
 
 public interface ITaskPersonDao {
-	/**
-	 * 通过taskNum检索相关的task人员分配
-	 * @param taskNum
-	 * @return
-	 */
-	public TaskPerson getTaskPersonByTaskNum(String taskNum);
+    /**
+     * 閫氳繃taskNum妫�绱㈢浉鍏崇殑task浜哄憳鍒嗛厤
+     * 
+     * @param taskNum
+     * @return
+     */
+    public TaskPerson getTaskPersonByTaskNum(String taskNum);
 }

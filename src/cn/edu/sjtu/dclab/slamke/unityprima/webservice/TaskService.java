@@ -25,9 +25,7 @@ import cn.edu.sjtu.dclab.slamke.unityprima.domain.Employee;
 import cn.edu.sjtu.dclab.slamke.unityprima.domain.Task;
 import cn.edu.sjtu.dclab.slamke.unityprima.domain.TaskPerson;
 import cn.edu.sjtu.dclab.slamke.unityprima.util.ClassParse;
-import cn.edu.sjtu.dclab.slamke.unityprima.util.DateParse;
 import cn.edu.sjtu.dclab.slamke.unityprima.util.Message;
-import cn.edu.sjtu.dclab.slamke.unityprima.util.StatusParser;
 
 @Path("/task")
 public class TaskService {
@@ -45,56 +43,54 @@ public class TaskService {
 		employeeDao = new EmployeeDaoImpl();
 	}
 
+    /*
+     * @GET
+     * 
+     * @Path("/checkstatus")
+     * 
+     * @Produces("application/json") public String checkTaskStatus(@HeaderParam("tel") String tel,@HeaderParam("num")
+     * String num) { Customer customer = dao.login(tel); System.out.println("tel:"+tel);
+     * Log.debug("tel:"+tel+" æŸ¥çœ‹ä»»åŠ¡çŠ¶æ€ï¼Œä»»åŠ¡ç¼–å·ï¼š"+num); if (customer != null) { try { num = URLDecoder.decode(num, "UTF-8");
+     * System.out.println("num:"+num); Task task = taskDao.getTaskByNum(num); if (task == null) {
+     * Log.error("tel:"+tel+" æŸ¥çœ‹ä»»åŠ¡çŠ¶æ€ï¼Œä»»åŠ¡ç¼–å·ï¼š"+num+"--ä»»åŠ¡æ£€ç´¢ä¸å­˜åœ¨"); return Message.ERROR; } TaskPerson person =
+     * taskPersonDao.getTaskPersonByTaskNum(num); Employee employee = null; if (person != null) { employee =
+     * employeeDao.getEmployeeByNum(person.getEmpNum()); } DateParse dateParse = new DateParse(); StringBuffer sb = new
+     * StringBuffer(); sb.append("æ‚¨æŸ¥è¯¢çš„äº‹é¡¹ç¼–å·ä¸º"); sb.append(num); if (task.getInsertTime() != null) { sb.append(",æå‡ºæ—¶é—´ä¸º");
+     * sb.append(dateParse.date2AnotherString(task.getInsertTime())); } sb.append(","); sb.append(task.getRemark());
+     * sb.append(";ç›®å‰è¿›åº¦ä¸º:"); sb.append(StatusParser.getStatus(task.getStatus().trim())); if (employee != null) {
+     * sb.append(",è´£ä»»äººä¸º"); sb.append(employee.getName()); }else {
+     * Log.error("tel:"+tel+" æŸ¥çœ‹ä»»åŠ¡çŠ¶æ€ï¼Œä»»åŠ¡ç¼–å·ï¼š"+num+"ï¼Œè´£ä»»äººæŸ¥æ‰¾å¤±è´¥ï¼štask num"+task.getNum());
+     * System.out.println("è´£ä»»äººæŸ¥æ‰¾å¤±è´¥ï¼štask num"+task.getNum()); } sb.append("ã€‚æ‚¨è¿˜å¯ä»¥æ‰“ç”µè¯ç»™å¥šå¥³å£«ï¼ˆ13816156445ï¼‰äº†è§£è¯¦æƒ….");
+     * Log.debug("tel:"+tel+" æŸ¥çœ‹ä»»åŠ¡çŠ¶æ€ï¼Œä»»åŠ¡ç¼–å·ï¼š"+num+"æŸ¥çœ‹æˆåŠŸ--result:"+sb.toString()); return sb.toString(); } catch (Exception
+     * e) { // TODO: handle exception Log.error("tel:"+tel+" æŸ¥çœ‹ä»»åŠ¡çŠ¶æ€ï¼Œä»»åŠ¡ç¼–å·ï¼š"+num+"--æ•°æ®è§£æé”™è¯¯"); e.printStackTrace(); } }
+     * Log.error("tel:"+tel+" æŸ¥çœ‹ä»»åŠ¡çŠ¶æ€ï¼Œä»»åŠ¡ç¼–å·ï¼š"+num+"--èº«ä»½éªŒè¯å¤±è´¥"); return Message.ERROR; }
+     */
+	
 	@GET
 	@Path("/checkstatus")
 	@Produces("application/json")
-	public String checkTaskStatus(@HeaderParam("tel") String tel,@HeaderParam("num") String num) {
+	public String getProgress(@HeaderParam("tel") String tel,@HeaderParam("num") String num) {
 		Customer customer = dao.login(tel);
 		System.out.println("tel:"+tel);
-		Log.debug("tel:"+tel+" ²é¿´ÈÎÎñ×´Ì¬£¬ÈÎÎñ±àºÅ£º"+num);
+        Log.debug("tel:" + tel + " æŸ¥çœ‹ä»»åŠ¡çŠ¶æ€ï¼Œä»»åŠ¡ç¼–å·ï¼š" + num);
 		if (customer != null) {
 			try {
 				num = URLDecoder.decode(num, "UTF-8");
 				System.out.println("num:"+num);
-				Task task = taskDao.getTaskByNum(num);
-				if (task == null) {
-					Log.error("tel:"+tel+" ²é¿´ÈÎÎñ×´Ì¬£¬ÈÎÎñ±àºÅ£º"+num+"--ÈÎÎñ¼ìË÷²»´æÔÚ");
+				String res = taskDao.getProgress(num);
+				if (res == null) {
+                    Log.error("tel:" + tel + " æŸ¥çœ‹ä»»åŠ¡çŠ¶æ€ï¼Œä»»åŠ¡ç¼–å·ï¼š" + num + "--ä»»åŠ¡æ£€ç´¢ä¸å­˜åœ¨");
 					return Message.ERROR;
 				}
-				TaskPerson person = taskPersonDao.getTaskPersonByTaskNum(num);
-				Employee employee = null;
-				if (person != null) {
-					employee = employeeDao.getEmployeeByNum(person.getEmpNum());
-				}
-				DateParse dateParse = new DateParse();
-				StringBuffer sb = new StringBuffer();
-				sb.append("Äú²éÑ¯µÄÊÂÏî±àºÅÎª");
-				sb.append(num);
-				if (task.getInsertTime() != null) {
-					sb.append(",Ìá³öÊ±¼äÎª");
-					sb.append(dateParse.date2AnotherString(task.getInsertTime()));
-				}			
-				sb.append(",");
-				sb.append(task.getRemark());
-				sb.append(";Ä¿Ç°½ø¶ÈÎª:");
-				sb.append(StatusParser.getStatus(task.getStatus().trim()));
-				if (employee != null) {
-					sb.append(",ÔğÈÎÈËÎª");
-					sb.append(employee.getName());
-				}else {
-					Log.error("tel:"+tel+" ²é¿´ÈÎÎñ×´Ì¬£¬ÈÎÎñ±àºÅ£º"+num+"£¬ÔğÈÎÈË²éÕÒÊ§°Ü£ºtask num"+task.getNum());
-					System.out.println("ÔğÈÎÈË²éÕÒÊ§°Ü£ºtask num"+task.getNum());
-				}
-				sb.append("¡£Äú»¹¿ÉÒÔ´òµç»°¸øŞÉÅ®Ê¿£¨13816156445£©ÁË½âÏêÇé.");
-				Log.debug("tel:"+tel+" ²é¿´ÈÎÎñ×´Ì¬£¬ÈÎÎñ±àºÅ£º"+num+"²é¿´³É¹¦--result:"+sb.toString());
-				return sb.toString();
+                Log.debug("tel:" + tel + " æŸ¥çœ‹ä»»åŠ¡çŠ¶æ€ï¼Œä»»åŠ¡ç¼–å·ï¼š" + num + "æŸ¥çœ‹æˆåŠŸ--result:" + res);
+				return res;
 			} catch (Exception e) {
 				// TODO: handle exception
-				Log.error("tel:"+tel+" ²é¿´ÈÎÎñ×´Ì¬£¬ÈÎÎñ±àºÅ£º"+num+"--Êı¾İ½âÎö´íÎó");
+                Log.error("tel:" + tel + " æŸ¥çœ‹ä»»åŠ¡çŠ¶æ€ï¼Œä»»åŠ¡ç¼–å·ï¼š" + num + "--æ•°æ®è§£æé”™è¯¯");
 				e.printStackTrace();
 			}			
 		}
-		Log.error("tel:"+tel+" ²é¿´ÈÎÎñ×´Ì¬£¬ÈÎÎñ±àºÅ£º"+num+"--Éí·İÑéÖ¤Ê§°Ü");
+        Log.error("tel:" + tel + " æŸ¥çœ‹ä»»åŠ¡çŠ¶æ€ï¼Œä»»åŠ¡ç¼–å·ï¼š" + num + "--èº«ä»½éªŒè¯å¤±è´¥");
 		return Message.ERROR;
 	}
 	
@@ -104,13 +100,13 @@ public class TaskService {
 	public String getUnEvaluatedTaskList(@HeaderParam("tel") String tel) {
 		Customer customer = dao.login(tel);
 		System.out.println("tel:"+tel);
-		Log.debug("tel:"+tel+" »ñÈ¡Î´ÆÀ¹ÀÈÎÎñÁĞ±í");
+        Log.debug("tel:" + tel + " è·å–æœªè¯„ä¼°ä»»åŠ¡åˆ—è¡¨");
 		if (customer != null) {
 			try {
 				List<Task> tasks = taskDao.getUnEvaluatedTasks(customer.getNum());
 				if (tasks == null || tasks.size() == 0) {
-					//È«²¿ÆÀ¼ÛÍê³É
-					Log.debug("tel:"+tel+" »ñÈ¡Î´ÆÀ¹ÀÈÎÎñÁĞ±í--È«²¿ÆÀ¼Û");
+                    // å…¨éƒ¨è¯„ä»·å®Œæˆ
+                    Log.debug("tel:" + tel + " è·å–æœªè¯„ä¼°ä»»åŠ¡åˆ—è¡¨--å…¨éƒ¨è¯„ä»·");
 					return Message.SUCCESS;
 				}
 				Map<String, String> taskPersonPair = new HashMap<String, String>();
@@ -130,20 +126,20 @@ public class TaskService {
 				ClassParse parse = new ClassParse();
 				String result = parse.taskPersonPair2String(taskPersonPair);
 				if (result != null) {
-					//´ıÆÀ¼ÛÁĞ±í
-					Log.debug("tel:"+tel+" »ñÈ¡Î´ÆÀ¹ÀÈÎÎñÁĞ±í--ÆÀ¼Û³É¹¦£¬result£º"+result);
+                    // å¾…è¯„ä»·åˆ—è¡¨
+                    Log.debug("tel:" + tel + " è·å–æœªè¯„ä¼°ä»»åŠ¡åˆ—è¡¨--è¯„ä»·æˆåŠŸï¼Œresultï¼š" + result);
 					return result;
 				}
-				Log.error("tel:"+tel+" »ñÈ¡Î´ÆÀ¹ÀÈÎÎñÁĞ±í--Êı¾İ½âÎö´íÎó");
-				//½âÎö³ö´í
+                Log.error("tel:" + tel + " è·å–æœªè¯„ä¼°ä»»åŠ¡åˆ—è¡¨--æ•°æ®è§£æé”™è¯¯");
+                // è§£æå‡ºé”™
 				return Message.ERROR;
 			} catch (Exception e) {
 				// TODO: handle exception
-				Log.error("tel:"+tel+" »ñÈ¡Î´ÆÀ¹ÀÈÎÎñÁĞ±í--Êı¾İ½âÎö´íÎó");
+                Log.error("tel:" + tel + " è·å–æœªè¯„ä¼°ä»»åŠ¡åˆ—è¡¨--æ•°æ®è§£æé”™è¯¯");
 				e.printStackTrace();
 			}			
 		}
-		Log.error("tel:"+tel+" »ñÈ¡Î´ÆÀ¹ÀÈÎÎñÁĞ±í--Éí·İÑéÖ¤´íÎó");
+        Log.error("tel:" + tel + " è·å–æœªè¯„ä¼°ä»»åŠ¡åˆ—è¡¨--èº«ä»½éªŒè¯é”™è¯¯");
 		return Message.ERROR;
 	}
 	
@@ -153,32 +149,32 @@ public class TaskService {
 	public String getUnclosedTaskList(@HeaderParam("tel") String tel) {
 		Customer customer = dao.login(tel);
 		System.out.println("tel:"+tel);
-		Log.debug("tel:"+tel+" »ñÈ¡Î´¹Ø±ÕÈÎÎñÁĞ±í");
+        Log.debug("tel:" + tel + " è·å–æœªå…³é—­ä»»åŠ¡åˆ—è¡¨");
 		if (customer != null) {
 			try {
 				List<Task> tasks = taskDao.getUnClosedTasks(customer.getNum());
 				if (tasks == null || tasks.size() == 0) {
-					//È«²¿ÈÎÎñÒÑ¾­¹Ø±Õ
-					Log.debug("tel:"+tel+" »ñÈ¡Î´¹Ø±ÕÈÎÎñÁĞ±í--È«²¿¹Ø±Õ");
+                    // å…¨éƒ¨ä»»åŠ¡å·²ç»å…³é—­
+                    Log.debug("tel:" + tel + " è·å–æœªå…³é—­ä»»åŠ¡åˆ—è¡¨--å…¨éƒ¨å…³é—­");
 					return Message.SUCCESS;
 				}
 				ClassParse parse = new ClassParse();
 				String result = parse.taskList2String(tasks);
 				if (result != null) {
-					//´ı²éÑ¯ÁĞ±í
-					Log.debug("tel:"+tel+" »ñÈ¡Î´¹Ø±ÕÈÎÎñÁĞ±í--³É¹¦£¬result:"+result);
+                    // å¾…æŸ¥è¯¢åˆ—è¡¨
+                    Log.debug("tel:" + tel + " è·å–æœªå…³é—­ä»»åŠ¡åˆ—è¡¨--æˆåŠŸï¼Œresult:" + result);
 					return result;
 				}
-				//½âÎö³ö´í
-				Log.debug("tel:"+tel+" »ñÈ¡Î´¹Ø±ÕÈÎÎñÁĞ±í--Êı¾İ½âÎö´íÎó");
+                // è§£æå‡ºé”™
+                Log.debug("tel:" + tel + " è·å–æœªå…³é—­ä»»åŠ¡åˆ—è¡¨--æ•°æ®è§£æé”™è¯¯");
 				return Message.ERROR;
 			} catch (Exception e) {
 				// TODO: handle exception
-				Log.debug("tel:"+tel+" »ñÈ¡Î´¹Ø±ÕÈÎÎñÁĞ±í--Êı¾İ½âÎö´íÎó");
+                Log.debug("tel:" + tel + " è·å–æœªå…³é—­ä»»åŠ¡åˆ—è¡¨--æ•°æ®è§£æé”™è¯¯");
 				e.printStackTrace();
 			}			
 		}
-		Log.debug("tel:"+tel+" »ñÈ¡Î´¹Ø±ÕÈÎÎñÁĞ±í--Éí·İÑéÖ¤´íÎó");
+        Log.debug("tel:" + tel + " è·å–æœªå…³é—­ä»»åŠ¡åˆ—è¡¨--èº«ä»½éªŒè¯é”™è¯¯");
 		return Message.ERROR;
 	}
 	
@@ -188,32 +184,32 @@ public class TaskService {
 	public String getUnclosedAndProgressTaskList(@HeaderParam("tel") String tel) {
 		Customer customer = dao.login(tel);
 		System.out.println("tel:"+tel);
-		Log.debug("tel:"+tel+" »ñÈ¡½ø¶È²éÑ¯ÈÎÎñÁĞ±í");
+        Log.debug("tel:" + tel + " è·å–è¿›åº¦æŸ¥è¯¢ä»»åŠ¡åˆ—è¡¨");
 		if (customer != null) {
 			try {
 				List<Task> tasks = taskDao.getUnClosedAndProgressTasks(customer.getNum());
 				if (tasks == null || tasks.size() == 0) {
-					//È«²¿ÈÎÎñÒÑ¾­¹Ø±Õ
-					Log.debug("tel:"+tel+" »ñÈ¡½ø¶È²éÑ¯ÈÎÎñÁĞ±í--È«²¿¹Ø±Õ");
+                    // å…¨éƒ¨ä»»åŠ¡å·²ç»å…³é—­
+                    Log.debug("tel:" + tel + " è·å–è¿›åº¦æŸ¥è¯¢ä»»åŠ¡åˆ—è¡¨--å…¨éƒ¨å…³é—­");
 					return Message.SUCCESS;
 				}
 				ClassParse parse = new ClassParse();
 				String result = parse.taskList2String(tasks);
 				if (result != null) {
-					//´ı²éÑ¯ÁĞ±í
-					Log.debug("tel:"+tel+" »ñÈ¡½ø¶È²éÑ¯ÈÎÎñÁĞ±í--³É¹¦£¬result:"+result);
+                    // å¾…æŸ¥è¯¢åˆ—è¡¨
+                    Log.debug("tel:" + tel + " è·å–è¿›åº¦æŸ¥è¯¢ä»»åŠ¡åˆ—è¡¨--æˆåŠŸï¼Œresult:" + result);
 					return result;
 				}
-				//½âÎö³ö´í
-				Log.debug("tel:"+tel+" »ñÈ¡½ø¶È²éÑ¯ÈÎÎñÁĞ±í--Êı¾İ½âÎö´íÎó");
+                // è§£æå‡ºé”™
+                Log.debug("tel:" + tel + " è·å–è¿›åº¦æŸ¥è¯¢ä»»åŠ¡åˆ—è¡¨--æ•°æ®è§£æé”™è¯¯");
 				return Message.ERROR;
 			} catch (Exception e) {
 				// TODO: handle exception
-				Log.debug("tel:"+tel+" »ñÈ¡½ø¶È²éÑ¯ÈÎÎñÁĞ±í--Êı¾İ½âÎö´íÎó");
+                Log.debug("tel:" + tel + " è·å–è¿›åº¦æŸ¥è¯¢ä»»åŠ¡åˆ—è¡¨--æ•°æ®è§£æé”™è¯¯");
 				e.printStackTrace();
 			}			
 		}
-		Log.debug("tel:"+tel+" »ñÈ¡½ø¶È²éÑ¯ÈÎÎñÁĞ±í--Éí·İÑéÖ¤´íÎó");
+        Log.debug("tel:" + tel + " è·å–è¿›åº¦æŸ¥è¯¢ä»»åŠ¡åˆ—è¡¨--èº«ä»½éªŒè¯é”™è¯¯");
 		return Message.ERROR;
 	}
 }

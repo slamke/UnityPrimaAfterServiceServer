@@ -1,5 +1,6 @@
 package cn.edu.sjtu.dclab.slamke.unityprima.dao.impl;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -72,15 +73,16 @@ public class TaskDaoImpl implements ITaskDao {
 
 		return false;
 	}
-	/**
-	 * ¸ü¸ÄÎªprepareStatement
-	 */
+	
+    /**
+     * æ›´æ”¹ä¸ºprepareStatement
+     */
 	@Override
 	public List<Task> getUnEvaluatedTasks(String CustomerNum) {
 		// TODO Auto-generated method stub
 		List<Task> tasks = new ArrayList<Task>();
         try {
-        	//¼ìË÷ËùÓĞÎ´ÆÀ¹ÀµÄtask  
+            // æ£€ç´¢æ‰€æœ‰æœªè¯„ä¼°çš„task
         	//String sql = "select * from "+ Task.TABLE_NAME+" where CustomerNum='"+CustomerNum+"' and datediff(day,'1905/6/12',ConfirmCompleteTime)=0 and [Close]=0 and datediff(day,'2000/6/12',CompleteTime)>0;";
         	String sql = "select * from "+ Task.TABLE_NAME+" where CustomerNum=? and datediff(day,'1905/6/12',ConfirmCompleteTime)=0 and [Close]=0 and datediff(day,'2000/6/12',CompleteTime)>0;";
     		System.out.println(sql);
@@ -106,9 +108,10 @@ public class TaskDaoImpl implements ITaskDao {
         }
         return tasks;
 	}
-	/**
-	 * ¸ü¸ÄÎªprepareStatement
-	 */
+	
+    /**
+     * æ›´æ”¹ä¸ºprepareStatement
+     */
 	@Override
 	public Task getTaskByNum(String num) {
 		// TODO Auto-generated method stub
@@ -149,9 +152,10 @@ public class TaskDaoImpl implements ITaskDao {
         }
         return task;
 	}
-	/**
-	 * ¸ü¸ÄÎªprepareStatement
-	 */
+	
+    /**
+     * æ›´æ”¹ä¸ºprepareStatement
+     */
 	@Override
 	public List<Task> getUnClosedTasks(String CustomerNum) {
 		// TODO Auto-generated method stub
@@ -181,17 +185,19 @@ public class TaskDaoImpl implements ITaskDao {
         }
         return tasks;
 	}
-	/**
-	 * ¸ü¸ÄÎªprepareStatement
-	 */
+	
+    /**
+     * æ›´æ”¹ä¸ºprepareStatement
+     */
 	@Override
 	public List<Task> getUnClosedAndProgressTasks(String CustomerNum) {
 		// TODO Auto-generated method stub
 		List<Task> tasks = new ArrayList<Task>();
 		
         try {
-        	//String sql = "select * from "+ Task.TABLE_NAME+" where CustomerNum='"+CustomerNum+"' and [Close]=0 and [Status]!='Íê³É';";
-        	String sql = "select * from "+ Task.TABLE_NAME+" where CustomerNum=? and [Close]=0 and [Status]!='Íê³É';";
+            // String sql = "select * from "+
+            // Task.TABLE_NAME+" where CustomerNum='"+CustomerNum+"' and [Close]=0 and [Status]!='å®Œæˆ';";
+            String sql = "select * from " + Task.TABLE_NAME + " where CustomerNum=? and [Close]=0 and [Status]!='å®Œæˆ';";
     		Connection con = dbAccess.getConnection();  
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, CustomerNum);
@@ -214,9 +220,10 @@ public class TaskDaoImpl implements ITaskDao {
         }
         return tasks;
 	}
-	/**
-	 * ¸ü¸ÄÎªprepareStatement
-	 */
+	
+    /**
+     * æ›´æ”¹ä¸ºprepareStatement
+     */
 	@Override
 	public boolean inertTaskEvaluation(CommentInfo info) {
 		// TODO Auto-generated method stub
@@ -243,14 +250,11 @@ public class TaskDaoImpl implements ITaskDao {
 		        
 		        System.out.println("Remark:"+storeRemark);
 				if (info.getContent().equals(Const.TASK_EVALUATE_UNSATISFY)) {
-					/*//Ê¹ÓÃÄ¬ÈÏÊ±ÇøºÍÓïÑÔ»·¾³»ñµÃÒ»¸öÈÕÀú  
-					Calendar cale = Calendar.getInstance();  
-					//½«CalendarÀàĞÍ×ª»»³ÉDateÀàĞÍ  
-					Date tasktime=cale.getTime();  
-					//ÉèÖÃÈÕÆÚÊä³öµÄ¸ñÊ½  
-					SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
-					//¸ñÊ½»¯Êä³ö  
-					String time = df.format(tasktime); */
+                    /*
+                     * //ä½¿ç”¨é»˜è®¤æ—¶åŒºå’Œè¯­è¨€ç¯å¢ƒè·å¾—ä¸€ä¸ªæ—¥å† Calendar cale = Calendar.getInstance(); //å°†Calendarç±»å‹è½¬æ¢æˆDateç±»å‹ Date
+                     * tasktime=cale.getTime(); //è®¾ç½®æ—¥æœŸè¾“å‡ºçš„æ ¼å¼ SimpleDateFormat df=new
+                     * SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //æ ¼å¼åŒ–è¾“å‡º String time = df.format(tasktime);
+                     */
 					String remarkSQL = "select isnull('"+storeRemark+"'+char(13),'') as remark";
 			        Statement statement1 = dbAccess.getStatement(con); 
 			        ResultSet rs1 = dbAccess.getResultSetQuery(statement1, remarkSQL);
@@ -303,6 +307,32 @@ public class TaskDaoImpl implements ITaskDao {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public String getProgress(String num) {
+        CallableStatement proc = null;// æ‰§è¡Œsqlå­˜å‚¨è¿‡ç¨‹çš„æ¥å£
+		String res = null;
+		ResultSet rs = null;
+		Connection con = null;
+		try {
+        	String sql = "{call dbo.P_TaskTimePoint(?)}";
+    		con = dbAccess.getConnection();  
+    		proc = con.prepareCall(sql);
+    		//proc.registerOutParameter(1, Types.NVARCHAR);
+    		proc.setString(1, num);
+            rs = proc.executeQuery();// å–å¾—ç»“æœé›†
+            if(rs.next()){
+            	res = rs.getString(1);
+            }  
+        } catch (SQLException e) {  
+            e.printStackTrace();  
+        }finally{
+        	DBAccess.close(rs);
+            DBAccess.close(proc);
+            DBAccess.close(con);
+        }
+		return res;
 	}
 
 }

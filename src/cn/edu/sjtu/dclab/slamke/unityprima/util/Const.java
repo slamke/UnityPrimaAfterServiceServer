@@ -1,19 +1,20 @@
 package cn.edu.sjtu.dclab.slamke.unityprima.util;
 
 public class Const {
-	
-	private Const(){}
-	public static final String DEFAULT_WEBSERVICE_SOURCE = "ÊÖ»úÓ¦ÓÃ";
-	public static final String DEFAULT_WEBSERVICE_STATUS = "Î´´¦Àí";
-	
-	public static final String SUGGESTION_TYPE_ADVICE = "½¨Òé£º";
-	
-	public static final String SUGGESTION_TYPE_COMPLAINT = "Í¶Ëß£º";
-	
-	
-	public static final String TASK_EVALUATE_SUPER_SATISFY = "ºÜÂúÒâ";
-	
-	public static final String TASK_EVALUATE_SATISFY = "ÂúÒâ";
-	
-	public static final String TASK_EVALUATE_UNSATISFY = "²»ÂúÒâ";
+
+    private Const() {
+    }
+
+    public static final String DEFAULT_WEBSERVICE_SOURCE = "æ‰‹æœºåº”ç”¨";
+    public static final String DEFAULT_WEBSERVICE_STATUS = "æœªå¤„ç†";
+
+    public static final String SUGGESTION_TYPE_ADVICE = "å»ºè®®ï¼š";
+
+    public static final String SUGGESTION_TYPE_COMPLAINT = "æŠ•è¯‰ï¼š";
+
+    public static final String TASK_EVALUATE_SUPER_SATISFY = "å¾ˆæ»¡æ„";
+
+    public static final String TASK_EVALUATE_SATISFY = "æ»¡æ„";
+
+    public static final String TASK_EVALUATE_UNSATISFY = "ä¸æ»¡æ„";
 }

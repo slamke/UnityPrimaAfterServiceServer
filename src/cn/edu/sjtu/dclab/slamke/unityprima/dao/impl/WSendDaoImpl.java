@@ -8,10 +8,12 @@ import java.util.Date;
 import cn.edu.sjtu.dclab.slamke.unityprima.dao.IWSendDao;
 import cn.edu.sjtu.dclab.slamke.unityprima.domain.WSend;
 import cn.edu.sjtu.dclab.slamke.unityprima.util.Utils;
+
 /**
- * ÖØ¹¹´úÂë-07-05
+ * é‡æ„ä»£ç -07-05
+ * 
  * @author sunke
- *
+ * 
  */
 public class WSendDaoImpl implements IWSendDao {
 

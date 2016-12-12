@@ -6,10 +6,12 @@ import cn.edu.sjtu.dclab.slamke.unityprima.domain.Customer;
 import cn.edu.sjtu.dclab.slamke.unityprima.domain.Device;
 
 public interface IDeviceDao {
-	/**
-	 * »ñÈ¡ÓÃ»§µÄËùÓĞÉè±¸Çåµ¥
-	 * @param customer
-	 * @return
-	 */
+
+    /**
+     * è·å–ç”¨æˆ·çš„æ‰€æœ‰è®¾å¤‡æ¸…å•
+     * 
+     * @param customer
+     * @return
+     */
 	public List<Device> getDevicesByCustomer(Customer customer);
 }

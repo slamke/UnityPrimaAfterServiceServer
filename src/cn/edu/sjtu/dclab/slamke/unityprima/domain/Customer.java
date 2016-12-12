@@ -3,304 +3,326 @@ package cn.edu.sjtu.dclab.slamke.unityprima.domain;
 import java.util.List;
 
 /**
- * ¿Í»§ĞÅÏ¢±í ±íÃû£ºtb_Customer ËùÔÚÊı¾İ¿â£ºServiceInformationManageSystem
+ * å®¢æˆ·ä¿¡æ¯è¡¨ è¡¨åï¼štb_Customer æ‰€åœ¨æ•°æ®åº“ï¼šServiceInformationManageSystem
+ * 
  * @author sunke
- *
+ * 
  */
 public class Customer {
-	public static final String TABLE_NAME = "tb_Customer";
-	
-	/**
-	 * ID	ID	int	Ö÷¼ü£¬×ÔÔö1
-	 */
-	private int id;
-	/**
-	 * Num	¿Í»§±àºÅ	nvarchar(50)	·Ç¿Õ
-	 */
-	private String num;
-	/**
-	 * Name	¿Í»§Ãû	nvarchar(100)	·Ç¿Õ
-	 */
-	private String name;
-	/**
-	 * Mail	ÓÊÏä	nvarchar(100)	¿É¿Õ
-	 */
-	private String mail;
-	/**
-	 * SmsTel	¶ÌĞÅÕËºÅ	nvarchar(50)	·Ç¿Õ
-	 */
-	private String smsTel;
-	
-	/**
-	 * FaxNum	´«ÕæºÅ	nvarchar(50)	·Ç¿Õ
-	 */
-	private String faxNum;
-	
-	/**
-	 * WebAddress	ÍøÖ·	nvarchar(500)	¿É¿Õ
-	 */
-	private String webAddress;
-	/**
-	 * DefaultContactor	Ä¬ÈÏÁªÏµÈË	nvarchar(50)	·Ç¿Õ
-	 */
-	private String defaultContactor;
-	
-	/**
-	 * DefaultContactorTel	Ä¬ÈÏÁªÏµÈËµç»°	nvarchar(50)	·Ç¿Õ
-	 */
-	private String defaultContactorTel;
-	
-	/**
-	 * Chairman	¶­ÊÂ³¤	nvarchar(50)	¿É¿Õ
-	 */
-	private String chairman;
-	/**
-	 * ChairmanTel	¶­ÊÂ³¤µç»°	nvarchar(50)	¿É¿Õ
-	 */
-	private String chairmanTel;
-	
-	/**
-	 * LegalPerson	·¨ÈË	nvarchar(50)	¿É¿Õ
-	 */
-	private String legalPerson;
-	
-	/**
-	 * LegalPersonTel	·¨ÈËµç»°	nvarchar(50)	¿É¿Õ
-	 */
-	private String legalPersonTel;
-	
-	/**
-	 * GeneralManager	×Ü¾­Àí	nvarchar(50)	¿É¿Õ
-	 */
-	private String generalManager;
-	
-	/**
-	 * GeneralManagerTel	×Ü¾­Àíµç»°	nvarchar(50)	¿É¿Õ
-	 */
-	private String generalManagerTel;
-	
-	/**
-	 * FinanceSupervisor	²ÆÎñÖ÷¹Ü	nvarchar(50)	¿É¿Õ
-	 */
-	private String financeSupervisor;
-	
-	/**
-	 * FinanceSupervisorTel	²ÆÎñÖ÷¹Üµç»°	nvarchar(50)	¿É¿Õ
-	 */
-	private String financeSupervisorTel;
-	
-	/**
-	 * MachineSupervisor	Éè±¸Ö÷¹Ü	nvarchar(50)	¿É¿Õ
-	 */
-	private String machineSupervisor;
-	
-	/**
-	 * MachineSupervisorTel	Éè±¸Ö÷¹Üµç»°	nvarchar(50)	¿É¿Õ
-	 */
-	private String machineSupervisorTel;
-	
-	/**
-	 * OperationStaff	²Ù×÷¹¤	nvarchar(50)	¿É¿Õ
-	 */
-	private String operationStaff;
-	
-	/**
-	 * OperationStaffTel	²Ù×÷¹¤µç»°	nvarchar(50)	¿É¿Õ
-	 */
-	private String operationStaffTel;
-	
-	/**
-	 * Remark	±¸×¢	nvarchar(MAX)	¿É¿Õ
-	 */
-	private String remark;
-	
-	private List<Device> devices;
-	
-	
+    public static final String TABLE_NAME = "tb_Customer";
 
-	public List<Device> getDevices() {
-		return devices;
-	}
+    /**
+     * ID ID int ä¸»é”®ï¼Œè‡ªå¢1
+     */
+    private int id;
+    /**
+     * Num å®¢æˆ·ç¼–å· nvarchar(50) éç©º
+     */
+    private String num;
+    /**
+     * Name å®¢æˆ·å nvarchar(100) éç©º
+     */
+    private String name;
+    /**
+     * Mail é‚®ç®± nvarchar(100) å¯ç©º
+     */
+    private String mail;
+    /**
+     * SmsTel çŸ­ä¿¡è´¦å· nvarchar(50) éç©º
+     */
+    private String smsTel;
 
-	public void setDevices(List<Device> devices) {
-		this.devices = devices;
-	}
+    /**
+     * FaxNum ä¼ çœŸå· nvarchar(50) éç©º
+     */
+    private String faxNum;
 
-	public int getId() {
-		return id;
-	}
+    /**
+     * WebAddress ç½‘å€ nvarchar(500) å¯ç©º
+     */
+    private String webAddress;
+    /**
+     * DefaultContactor é»˜è®¤è”ç³»äºº nvarchar(50) éç©º
+     */
+    private String defaultContactor;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    /**
+     * DefaultContactorTel é»˜è®¤è”ç³»äººç”µè¯ nvarchar(50) éç©º
+     */
+    private String defaultContactorTel;
 
-	public String getNum() {
-		return num;
-	}
+    /**
+     * Chairman è‘£äº‹é•¿ nvarchar(50) å¯ç©º
+     */
+    private String chairman;
+    /**
+     * ChairmanTel è‘£äº‹é•¿ç”µè¯ nvarchar(50) å¯ç©º
+     */
+    private String chairmanTel;
 
-	public void setNum(String num) {
-		this.num = num;
-	}
+    /**
+     * LegalPerson æ³•äºº nvarchar(50) å¯ç©º
+     */
+    private String legalPerson;
 
-	public String getName() {
-		return name;
-	}
+    /**
+     * LegalPersonTel æ³•äººç”µè¯ nvarchar(50) å¯ç©º
+     */
+    private String legalPersonTel;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    /**
+     * GeneralManager æ€»ç»ç† nvarchar(50) å¯ç©º
+     */
+    private String generalManager;
 
-	public String getMail() {
-		return mail;
-	}
+    /**
+     * GeneralManagerTel æ€»ç»ç†ç”µè¯ nvarchar(50) å¯ç©º
+     */
+    private String generalManagerTel;
 
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
+    /**
+     * FinanceSupervisor è´¢åŠ¡ä¸»ç®¡ nvarchar(50) å¯ç©º
+     */
+    private String financeSupervisor;
 
-	public String getSmsTel() {
-		return smsTel;
-	}
+    /**
+     * FinanceSupervisorTel è´¢åŠ¡ä¸»ç®¡ç”µè¯ nvarchar(50) å¯ç©º
+     */
+    private String financeSupervisorTel;
 
-	public void setSmsTel(String smsTel) {
-		this.smsTel = smsTel;
-	}
+    /**
+     * MachineSupervisor è®¾å¤‡ä¸»ç®¡ nvarchar(50) å¯ç©º
+     */
+    private String machineSupervisor;
 
-	public String getFaxNum() {
-		return faxNum;
-	}
+    /**
+     * MachineSupervisorTel è®¾å¤‡ä¸»ç®¡ç”µè¯ nvarchar(50) å¯ç©º
+     */
+    private String machineSupervisorTel;
 
-	public void setFaxNum(String faxNum) {
-		this.faxNum = faxNum;
-	}
+    /**
+     * OperationStaff æ“ä½œå·¥ nvarchar(50) å¯ç©º
+     */
+    private String operationStaff;
 
-	public String getWebAddress() {
-		return webAddress;
-	}
+    /**
+     * OperationStaffTel æ“ä½œå·¥ç”µè¯ nvarchar(50) å¯ç©º
+     */
+    private String operationStaffTel;
 
-	public void setWebAddress(String webAddress) {
-		this.webAddress = webAddress;
-	}
+    /**
+     * Remark å¤‡æ³¨ nvarchar(MAX) å¯ç©º
+     */
+    private String remark;
 
-	public String getDefaultContactor() {
-		return defaultContactor;
-	}
+    private List<Device> devices;
 
-	public void setDefaultContactor(String defaultContactor) {
-		this.defaultContactor = defaultContactor;
-	}
+    public List<Device> getDevices() {
+        return devices;
+    }
 
-	public String getDefaultContactorTel() {
-		return defaultContactorTel;
-	}
+    public void setDevices(List<Device> devices) {
+        this.devices = devices;
+    }
 
-	public void setDefaultContactorTel(String defaultContactorTel) {
-		this.defaultContactorTel = defaultContactorTel;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getChairman() {
-		return chairman;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setChairman(String chairman) {
-		this.chairman = chairman;
-	}
+    public String getNum() {
+        return num;
+    }
 
-	public String getChairmanTel() {
-		return chairmanTel;
-	}
+    public void setNum(String num) {
+        this.num = num;
+    }
 
-	public void setChairmanTel(String chairmanTel) {
-		this.chairmanTel = chairmanTel;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getLegalPerson() {
-		return legalPerson;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setLegalPerson(String legalPerson) {
-		this.legalPerson = legalPerson;
-	}
+    public String getMail() {
+        return mail;
+    }
 
-	public String getLegalPersonTel() {
-		return legalPersonTel;
-	}
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
 
-	public void setLegalPersonTel(String legalPersonTel) {
-		this.legalPersonTel = legalPersonTel;
-	}
+    public String getSmsTel() {
+        return smsTel;
+    }
 
-	public String getGeneralManager() {
-		return generalManager;
-	}
+    public void setSmsTel(String smsTel) {
+        this.smsTel = smsTel;
+    }
 
-	public void setGeneralManager(String generalManager) {
-		this.generalManager = generalManager;
-	}
+    public String getFaxNum() {
+        return faxNum;
+    }
 
-	public String getGeneralManagerTel() {
-		return generalManagerTel;
-	}
+    public void setFaxNum(String faxNum) {
+        this.faxNum = faxNum;
+    }
 
-	public void setGeneralManagerTel(String generalManagerTel) {
-		this.generalManagerTel = generalManagerTel;
-	}
+    public String getWebAddress() {
+        return webAddress;
+    }
 
-	public String getFinanceSupervisor() {
-		return financeSupervisor;
-	}
+    public void setWebAddress(String webAddress) {
+        this.webAddress = webAddress;
+    }
 
-	public void setFinanceSupervisor(String financeSupervisor) {
-		this.financeSupervisor = financeSupervisor;
-	}
+    public String getDefaultContactor() {
+        return defaultContactor;
+    }
 
-	public String getFinanceSupervisorTel() {
-		return financeSupervisorTel;
-	}
+    public void setDefaultContactor(String defaultContactor) {
+        this.defaultContactor = defaultContactor;
+    }
 
-	public void setFinanceSupervisorTel(String financeSupervisorTel) {
-		this.financeSupervisorTel = financeSupervisorTel;
-	}
+    public String getDefaultContactorTel() {
+        return defaultContactorTel;
+    }
 
-	public String getMachineSupervisor() {
-		return machineSupervisor;
-	}
+    public void setDefaultContactorTel(String defaultContactorTel) {
+        this.defaultContactorTel = defaultContactorTel;
+    }
 
-	public void setMachineSupervisor(String machineSupervisor) {
-		this.machineSupervisor = machineSupervisor;
-	}
+    public String getChairman() {
+        return chairman;
+    }
 
-	public String getMachineSupervisorTel() {
-		return machineSupervisorTel;
-	}
+    public void setChairman(String chairman) {
+        this.chairman = chairman;
+    }
 
-	public void setMachineSupervisorTel(String machineSupervisorTel) {
-		this.machineSupervisorTel = machineSupervisorTel;
-	}
+    public String getChairmanTel() {
+        return chairmanTel;
+    }
 
-	public String getOperationStaff() {
-		return operationStaff;
-	}
+    public void setChairmanTel(String chairmanTel) {
+        this.chairmanTel = chairmanTel;
+    }
 
-	public void setOperationStaff(String operationStaff) {
-		this.operationStaff = operationStaff;
-	}
+    public String getLegalPerson() {
+        return legalPerson;
+    }
 
-	public String getOperationStaffTel() {
-		return operationStaffTel;
-	}
+    public void setLegalPerson(String legalPerson) {
+        this.legalPerson = legalPerson;
+    }
 
-	public void setOperationStaffTel(String operationStaffTel) {
-		this.operationStaffTel = operationStaffTel;
-	}
+    public String getLegalPersonTel() {
+        return legalPersonTel;
+    }
 
-	public String getRemark() {
-		return remark;
-	}
+    public void setLegalPersonTel(String legalPersonTel) {
+        this.legalPersonTel = legalPersonTel;
+    }
 
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
-	
+    public String getGeneralManager() {
+        return generalManager;
+    }
 
+    public void setGeneralManager(String generalManager) {
+        this.generalManager = generalManager;
+    }
+
+    public String getGeneralManagerTel() {
+        return generalManagerTel;
+    }
+
+    public void setGeneralManagerTel(String generalManagerTel) {
+        this.generalManagerTel = generalManagerTel;
+    }
+
+    public String getFinanceSupervisor() {
+        return financeSupervisor;
+    }
+
+    public void setFinanceSupervisor(String financeSupervisor) {
+        this.financeSupervisor = financeSupervisor;
+    }
+
+    public String getFinanceSupervisorTel() {
+        return financeSupervisorTel;
+    }
+
+    public void setFinanceSupervisorTel(String financeSupervisorTel) {
+        this.financeSupervisorTel = financeSupervisorTel;
+    }
+
+    public String getMachineSupervisor() {
+        return machineSupervisor;
+    }
+
+    public void setMachineSupervisor(String machineSupervisor) {
+        this.machineSupervisor = machineSupervisor;
+    }
+
+    public String getMachineSupervisorTel() {
+        return machineSupervisorTel;
+    }
+
+    public void setMachineSupervisorTel(String machineSupervisorTel) {
+        this.machineSupervisorTel = machineSupervisorTel;
+    }
+
+    public String getOperationStaff() {
+        return operationStaff;
+    }
+
+    public void setOperationStaff(String operationStaff) {
+        this.operationStaff = operationStaff;
+    }
+
+    public String getOperationStaffTel() {
+        return operationStaffTel;
+    }
+
+    public void setOperationStaffTel(String operationStaffTel) {
+        this.operationStaffTel = operationStaffTel;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public String getNameByTel(String tel) {
+        if (tel == null) {
+            return "";
+        }
+        if (tel.equals(smsTel) || tel.equals("+86" + smsTel)) {
+            return name;
+        } else if (tel.equals(defaultContactorTel) || tel.equals("+86" + defaultContactorTel)) {
+            return defaultContactor;
+        } else if (tel.equals(chairmanTel) || tel.equals("+86" + chairmanTel)) {
+            return chairman;
+        } else if (tel.equals(legalPersonTel) || tel.equals("+86" + legalPersonTel)) {
+            return legalPerson;
+        } else if (tel.equals(generalManagerTel) || tel.equals("+86" + generalManagerTel)) {
+            return generalManager;
+        } else if (tel.equals(financeSupervisorTel) || tel.equals("+86" + financeSupervisorTel)) {
+            return financeSupervisor;
+        } else if (tel.equals(machineSupervisorTel) || tel.equals("+86" + machineSupervisorTel)) {
+            return machineSupervisor;
+        } else if (tel.equals(operationStaffTel) || tel.equals("+86" + operationStaffTel)) {
+            return operationStaff;
+        } else {
+            return defaultContactor;
+        }
+    }
 }

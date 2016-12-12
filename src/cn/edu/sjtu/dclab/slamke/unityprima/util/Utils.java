@@ -47,7 +47,7 @@ private static String getValueByProperty(String property){
 		String path = Utils.class.getResource("/").getPath()+"/"+FILE_NAME;
 		//System.out.print(path);
 		InputStream in = new FileInputStream(new File(path));
-		// FileInputStream(fileName),²»¹ıÕâÖÖ·½Ê½ÕÒ²»µ½ÅäÖÃÎÄ¼ş¡£ÓĞÈËËµÊÇÔÚclassesÏÂ£¬ÎÒµ÷¹ıÁË£¬²»ĞĞ¡£
+            // FileInputStream(fileName),ä¸è¿‡è¿™ç§æ–¹å¼æ‰¾ä¸åˆ°é…ç½®æ–‡ä»¶ã€‚æœ‰äººè¯´æ˜¯åœ¨classesä¸‹ï¼Œæˆ‘è°ƒè¿‡äº†ï¼Œä¸è¡Œã€‚
 		p.load(in);
 		in.close();
 		if (p.containsKey(property)) {

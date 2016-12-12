@@ -19,9 +19,10 @@ public class TaskPersonDaoImpl implements ITaskPersonDao {
 				Utils.getDataBaseUser(), Utils.getDataBasePassword(),
 				Utils.getCustomerDataBase());
 	}
-	/**
-	 * ¸ü¸ÄÎªPrepareStatement
-	 */
+	
+    /**
+     * æ›´æ”¹ä¸ºPrepareStatement
+     */
 	@Override
 	public TaskPerson getTaskPersonByTaskNum(String taskNum) {
 		// TODO Auto-generated method stub

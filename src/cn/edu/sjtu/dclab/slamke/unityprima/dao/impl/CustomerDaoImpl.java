@@ -21,9 +21,9 @@ public class CustomerDaoImpl implements ICustomerDao {
 				Utils.getCustomerDataBase());
 	}
 
-	/**
-	 * ¸ü¸ÄÎªprepareStatement
-	 */
+	    /**
+     * æ›´æ”¹ä¸ºprepareStatement
+     */
 	@Override
 	public Customer login(String tel) {
 		// TODO Auto-generated method stub
@@ -67,18 +67,53 @@ public class CustomerDaoImpl implements ICustomerDao {
 			}
 			ResultSet rs = statement.executeQuery();
 			if (rs != null && rs.next()) {
+				
 				int id = rs.getInt("ID");
 				String num = rs.getString("Num");
 				String name = rs.getString("Name");
+				String Mail = rs.getString("Mail");
+				String SmsTel= rs.getString("SmsTel");
+				String FaxNum= rs.getString("FaxNum");
+				String WebAddress= rs.getString("WebAddress");
+				String DefaultContactor= rs.getString("DefaultContactor");
+				String DefaultContactorTel= rs.getString("DefaultContactorTel");
+				String Chairman= rs.getString("Chairman");
+				String ChairmanTel= rs.getString("ChairmanTel");
+				String LegalPerson= rs.getString("LegalPerson");
+				String LegalPersonTel= rs.getString("LegalPersonTel");
+				String GeneralManager= rs.getString("GeneralManager");
+				String GeneralManagerTel= rs.getString("GeneralManagerTel");
+				String FinanceSupervisor= rs.getString("FinanceSupervisor");
+				String FinanceSupervisorTel= rs.getString("FinanceSupervisorTel");
+				String MachineSupervisor= rs.getString("MachineSupervisor");
+				String MachineSupervisorTel= rs.getString("MachineSupervisorTel");
+				String OperationStaff= rs.getString("OperationStaff");
+				String OperationStaffTel= rs.getString("OperationStaffTel");
 				String remark = rs.getString("Remark");
-				String defaultContactor = rs.getString("DefaultContactor");
+				
 				customer = new Customer();
 				customer.setId(id);
 				customer.setNum(num);
 				customer.setName(name);
+				customer.setMail(Mail);
+				customer.setSmsTel(SmsTel);
+				customer.setFaxNum(FaxNum);
+				customer.setWebAddress(WebAddress);
+				customer.setDefaultContactor(DefaultContactor);
+				customer.setDefaultContactorTel(DefaultContactorTel);
+				customer.setChairman(Chairman);
+				customer.setChairmanTel(ChairmanTel);
+				customer.setLegalPerson(LegalPerson);
+				customer.setLegalPersonTel(LegalPersonTel);
+				customer.setGeneralManager(GeneralManager);
+				customer.setGeneralManagerTel(GeneralManagerTel);
+				customer.setFinanceSupervisor(FinanceSupervisor);
+				customer.setFinanceSupervisorTel(FinanceSupervisorTel);
+				customer.setMachineSupervisor(MachineSupervisor);
+				customer.setMachineSupervisorTel(MachineSupervisorTel);
+				customer.setOperationStaff(OperationStaff);
+				customer.setOperationStaffTel(OperationStaffTel);
 				customer.setRemark(remark);
-				customer.setSmsTel(tel);
-				customer.setDefaultContactor(defaultContactor);
 			}
 			DBAccess.close(rs);
 			DBAccess.close(statement);

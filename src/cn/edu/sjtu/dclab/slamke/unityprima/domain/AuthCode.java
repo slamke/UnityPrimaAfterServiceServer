@@ -3,45 +3,45 @@ package cn.edu.sjtu.dclab.slamke.unityprima.domain;
 import java.sql.Timestamp;
 
 public class AuthCode {
-	public static final String TABLE_NAME ="tb_AuthCode";
-	
-	private long id;
-	
-	private String tel;
-	
-	private String code;
-	
-	private Timestamp insertTime;
+    public static final String TABLE_NAME = "tb_AuthCode";
 
-	public long getId() {
-		return id;
-	}
+    private long id;
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    private String tel;
 
-	public String getTel() {
-		return tel;
-	}
+    private String code;
 
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
+    private Timestamp insertTime;
 
-	public String getCode() {
-		return code;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public void setCode(String code) {
-		this.code = code;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public Timestamp getInsertTime() {
-		return insertTime;
-	}
+    public String getTel() {
+        return tel;
+    }
 
-	public void setInsertTime(Timestamp insertTime) {
-		this.insertTime = insertTime;
-	}
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public Timestamp getInsertTime() {
+        return insertTime;
+    }
+
+    public void setInsertTime(Timestamp insertTime) {
+        this.insertTime = insertTime;
+    }
 }

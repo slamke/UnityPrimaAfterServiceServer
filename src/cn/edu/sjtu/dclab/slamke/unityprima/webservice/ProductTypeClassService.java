@@ -38,10 +38,10 @@ public class ProductTypeClassService {
 	@Produces("application/json")
 	public String getProductList(@FormParam("tel") String tel) {
 		System.out.println("get product type list");
-		Log.debug("tel:"+tel+" »ñÈ¡²úÆ·ÀàĞÍÁĞ±í");
+        Log.debug("tel:" + tel + " è·å–äº§å“ç±»å‹åˆ—è¡¨");
 		Customer customer = dao.login(tel);
 		if (customer == null) {
-			Log.error("tel:"+tel+" Éí·İÑéÖ¤Ê§°Ü");
+            Log.error("tel:" + tel + " èº«ä»½éªŒè¯å¤±è´¥");
 			return Message.ERROR;
 		}
 		List<ProductTypeClass> typeClasses = typeClassDao.getAllProductTypeClasses();
@@ -53,16 +53,16 @@ public class ProductTypeClassService {
 			ClassParse parse = new ClassParse();
 			try {
 				String result = URLEncoder.encode(parse.typeClasses2String(typeClasses), "UTF-8");
-				Log.debug("tel:"+tel+" »ñÈ¡²úÆ·ÀàĞÍÁĞ±í³É¹¦");
-				Log.debug("tel:"+tel+" »ñÈ¡²úÆ·ÀàĞÍÁĞ±í³É¹¦--result:"+parse.typeClasses2String(typeClasses));
+                Log.debug("tel:" + tel + " è·å–äº§å“ç±»å‹åˆ—è¡¨æˆåŠŸ");
+                Log.debug("tel:" + tel + " è·å–äº§å“ç±»å‹åˆ—è¡¨æˆåŠŸ--result:" + parse.typeClasses2String(typeClasses));
 				return result;
 			} catch (Exception e) {
 				// TODO: handle exception
-				Log.error("tel:"+tel+" »ñÈ¡²úÆ·ÀàĞÍÁĞ±í--Êı¾İ½âÎöÊ§°Ü");
+                Log.error("tel:" + tel + " è·å–äº§å“ç±»å‹åˆ—è¡¨--æ•°æ®è§£æå¤±è´¥");
 				e.printStackTrace();
 			}
 		}
-		Log.debug("tel:"+tel+" »ñÈ¡²úÆ·ÀàĞÍÁĞ±í--ÎŞ²úÆ·ÀàĞÍ");
+        Log.debug("tel:" + tel + " è·å–äº§å“ç±»å‹åˆ—è¡¨--æ— äº§å“ç±»å‹");
 		return Message.SUCCESS;
 	}
 }

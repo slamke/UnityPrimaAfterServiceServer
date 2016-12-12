@@ -3,189 +3,190 @@ package cn.edu.sjtu.dclab.slamke.unityprima.domain;
 import java.util.Date;
 
 /**
- * Éè±¸±í ±íÃûtb_DeviceËùÔÚÊı¾İ¿â£ºServiceInformationManageSystem
+ * è®¾å¤‡è¡¨ è¡¨åtb_Deviceæ‰€åœ¨æ•°æ®åº“ï¼šServiceInformationManageSystem
+ * 
  * @author sunke
- *
+ * 
  */
 public class Device {
-	
-	public static final String TABLE_NAME = "tb_Device";
-	/**
-	 * Num	±àºÅ	nvarchar(50)	Ö÷¼ü
-	 */
-	private String num;
-	/**
-	 * Type	ĞÍºÅ	nvarchar(50)	·Ç¿Õ
-	 */
-	private String type;
-	/**
-	 * AcceptTime	ÑéÊÕÊ±¼ä	datetime	¿É¿Õ
-	 */
-	private Date acceptTime;
-	
-	/**
-	 * WarrantyPeriod	ÖÊ±£ÆÚ	int	¿É¿Õ
-	 */
-	private int warrantyPeriod;
-	
-	/**
-	 * Customer	¿Í»§±àºÅ	nvarchar(50)	·Ç¿Õ£¬£¨¶ÔÓ¦¿Í»§±íÖĞµÄ±àºÅ£©
-	 */
-	private Customer customer;
-	
-	/**
-	 * ContractNum	ºÏÍ¬ºÅ	nvarchar(50)	¿É¿Õ
-	 */
-	private String contractNum;
-	/**
-	 * ControlSystem	¿ØÖÆÏµÍ³	nvarchar(50)	¿É¿Õ
-	 */
-	private String controlSystem;
-	
-	/**
-	 * ControlSystemSerial	¿ØÖÆÏµÍ³ĞòÁĞºÅ	nvarchar(50)	¿É¿Õ
-	 */
-	private String controlSystemSerial;
-	
-	/**
-	 * Laser	¼¤¹âÆ÷	nvarchar(50)	¿É¿Õ
-	 */
-	private String laser;
-	
-	/**
-	 * LaserSerial	¼¤¹âÆ÷ĞòÁĞºÅ	nvarchar(50)	¿É¿Õ
-	 */
-	private String laserSerial;
-	
-	/**
-	 * Programming	±à³ÌÈí¼ş	nvarchar(50)	¿É¿Õ
-	 */
-	private String programming;
-	
-	/**
-	 * DongleNum	¼ÓÃÜ¹·ĞòÁĞºÅ	nvarchar(50)	¿É¿Õ
-	 */
-	private String dongleNum;
-	
-	/**
-	 * Remark	±¸×¢	nvarchar(MAX)	¿É¿Õ
-	 */
-	private String remark;
 
-	public String getNum() {
-		return num;
-	}
+    public static final String TABLE_NAME = "tb_Device";
+    /**
+     * Num ç¼–å· nvarchar(50) ä¸»é”®
+     */
+    private String num;
+    /**
+     * Type å‹å· nvarchar(50) éç©º
+     */
+    private String type;
+    /**
+     * AcceptTime éªŒæ”¶æ—¶é—´ datetime å¯ç©º
+     */
+    private Date acceptTime;
 
-	public void setNum(String num) {
-		this.num = num;
-	}
+    /**
+     * WarrantyPeriod è´¨ä¿æœŸ int å¯ç©º
+     */
+    private int warrantyPeriod;
 
-	public String getType() {
-		return type;
-	}
+    /**
+     * Customer å®¢æˆ·ç¼–å· nvarchar(50) éç©ºï¼Œï¼ˆå¯¹åº”å®¢æˆ·è¡¨ä¸­çš„ç¼–å·ï¼‰
+     */
+    private Customer customer;
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    /**
+     * ContractNum åˆåŒå· nvarchar(50) å¯ç©º
+     */
+    private String contractNum;
+    /**
+     * ControlSystem æ§åˆ¶ç³»ç»Ÿ nvarchar(50) å¯ç©º
+     */
+    private String controlSystem;
 
-	public Date getAcceptTime() {
-		return acceptTime;
-	}
+    /**
+     * ControlSystemSerial æ§åˆ¶ç³»ç»Ÿåºåˆ—å· nvarchar(50) å¯ç©º
+     */
+    private String controlSystemSerial;
 
-	public void setAcceptTime(Date acceptTime) {
-		this.acceptTime = acceptTime;
-	}
+    /**
+     * Laser æ¿€å…‰å™¨ nvarchar(50) å¯ç©º
+     */
+    private String laser;
 
-	public int getWarrantyPeriod() {
-		return warrantyPeriod;
-	}
+    /**
+     * LaserSerial æ¿€å…‰å™¨åºåˆ—å· nvarchar(50) å¯ç©º
+     */
+    private String laserSerial;
 
-	public void setWarrantyPeriod(int warrantyPeriod) {
-		this.warrantyPeriod = warrantyPeriod;
-	}
+    /**
+     * Programming ç¼–ç¨‹è½¯ä»¶ nvarchar(50) å¯ç©º
+     */
+    private String programming;
 
-	
+    /**
+     * DongleNum åŠ å¯†ç‹—åºåˆ—å· nvarchar(50) å¯ç©º
+     */
+    private String dongleNum;
 
-	public Customer getCustomer() {
-		return customer;
-	}
+    /**
+     * Remark å¤‡æ³¨ nvarchar(MAX) å¯ç©º
+     */
+    private String remark;
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
+    public String getNum() {
+        return num;
+    }
 
-	public String getContractNum() {
-		return contractNum;
-	}
+    public void setNum(String num) {
+        this.num = num;
+    }
 
-	public void setContractNum(String contractNum) {
-		this.contractNum = contractNum;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public String getControlSystem() {
-		return controlSystem;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public void setControlSystem(String controlSystem) {
-		this.controlSystem = controlSystem;
-	}
+    public Date getAcceptTime() {
+        return acceptTime;
+    }
 
-	public String getControlSystemSerial() {
-		return controlSystemSerial;
-	}
+    public void setAcceptTime(Date acceptTime) {
+        this.acceptTime = acceptTime;
+    }
 
-	public void setControlSystemSerial(String controlSystemSerial) {
-		this.controlSystemSerial = controlSystemSerial;
-	}
+    public int getWarrantyPeriod() {
+        return warrantyPeriod;
+    }
 
-	public String getLaser() {
-		return laser;
-	}
+    public void setWarrantyPeriod(int warrantyPeriod) {
+        this.warrantyPeriod = warrantyPeriod;
+    }
 
-	public void setLaser(String laser) {
-		this.laser = laser;
-	}
 
-	public String getLaserSerial() {
-		return laserSerial;
-	}
 
-	public void setLaserSerial(String laserSerial) {
-		this.laserSerial = laserSerial;
-	}
+    public Customer getCustomer() {
+        return customer;
+    }
 
-	public String getProgramming() {
-		return programming;
-	}
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
-	public void setProgramming(String programming) {
-		this.programming = programming;
-	}
+    public String getContractNum() {
+        return contractNum;
+    }
 
-	public String getDongleNum() {
-		return dongleNum;
-	}
+    public void setContractNum(String contractNum) {
+        this.contractNum = contractNum;
+    }
 
-	public void setDongleNum(String dongleNum) {
-		this.dongleNum = dongleNum;
-	}
+    public String getControlSystem() {
+        return controlSystem;
+    }
 
-	public String getRemark() {
-		return remark;
-	}
+    public void setControlSystem(String controlSystem) {
+        this.controlSystem = controlSystem;
+    }
 
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
+    public String getControlSystemSerial() {
+        return controlSystemSerial;
+    }
 
-	public Device() {
-		super();
-	}
+    public void setControlSystemSerial(String controlSystemSerial) {
+        this.controlSystemSerial = controlSystemSerial;
+    }
 
-	public Device(String num, String type, Customer customer) {
-		super();
-		this.num = num;
-		this.type = type;
-		this.customer = customer;
-	}
+    public String getLaser() {
+        return laser;
+    }
+
+    public void setLaser(String laser) {
+        this.laser = laser;
+    }
+
+    public String getLaserSerial() {
+        return laserSerial;
+    }
+
+    public void setLaserSerial(String laserSerial) {
+        this.laserSerial = laserSerial;
+    }
+
+    public String getProgramming() {
+        return programming;
+    }
+
+    public void setProgramming(String programming) {
+        this.programming = programming;
+    }
+
+    public String getDongleNum() {
+        return dongleNum;
+    }
+
+    public void setDongleNum(String dongleNum) {
+        this.dongleNum = dongleNum;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public Device() {
+        super();
+    }
+
+    public Device(String num, String type, Customer customer) {
+        super();
+        this.num = num;
+        this.type = type;
+        this.customer = customer;
+    }
 }

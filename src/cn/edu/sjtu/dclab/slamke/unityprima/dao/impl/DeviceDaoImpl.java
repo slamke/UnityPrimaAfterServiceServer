@@ -24,16 +24,16 @@ public class DeviceDaoImpl implements IDeviceDao {
 
 
 	
-	/**
-	 * ¸ü¸ÄÎªprepareStatement
-	 */
+    /**
+     * æ›´æ”¹ä¸ºprepareStatement
+     */
 	@Override
 	public List<Device> getDevicesByCustomer(Customer customer) {		
 		List<Device> devices = new ArrayList<Device>();
         try {
         	//String sql = "select * from "+ Device.TABLE_NAME+" where Customer='"+customer.getNum()+"';";
         	String sql = "select * from "+ Device.TABLE_NAME+" where Customer=?";
-    		System.out.println("¶ÁÈ¡deviceÁĞ±í£º"+sql);
+            System.out.println("è¯»å–deviceåˆ—è¡¨ï¼š" + sql);
     		Connection con = dbAccess.getConnection();  
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, customer.getNum());
@@ -46,7 +46,7 @@ public class DeviceDaoImpl implements IDeviceDao {
             	device.setNum(num);
             	device.setType(type);
             	device.setRemark(remark);
-            	//device.setCustomer(customer);    //·ÀÖ¹gson½âÎö´íÎó
+                // device.setCustomer(customer); //é˜²æ­¢gsonè§£æé”™è¯¯
             	devices.add(device);
             }  
             DBAccess.close(rs);

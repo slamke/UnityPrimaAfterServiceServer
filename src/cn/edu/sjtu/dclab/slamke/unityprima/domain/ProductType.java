@@ -1,109 +1,110 @@
 package cn.edu.sjtu.dclab.slamke.unityprima.domain;
 
 /**
- * 1¡¢	Éè±¸ĞÍºÅ±í ±íÃû£ºtb_PoductType ËùÔÚÊı¾İ¿â£ºSUPMID
+ * 1ã€ è®¾å¤‡å‹å·è¡¨ è¡¨åï¼štb_PoductType æ‰€åœ¨æ•°æ®åº“ï¼šSUPMID
+ * 
  * @author sunke
- *
+ * 
  */
 public class ProductType {
-	public static final String TABLE_NAME = "tb_PoductType";
-	/**
-	 * ID	ID	int	Ö÷¼ü£¬ID£º×ÔÔö1
-	 */
-	private int id;
-	/**
-	 * Num	±àºÅ	nvarchar(50)	·Ç¿Õ
-	 */
-	private String num;
-	
+    public static final String TABLE_NAME = "tb_PoductType";
+    /**
+     * ID ID int ä¸»é”®ï¼ŒIDï¼šè‡ªå¢1
+     */
+    private int id;
+    /**
+     * Num ç¼–å· nvarchar(50) éç©º
+     */
+    private String num;
 
-	/**
-	 * Name	Ãû³Æ	nvarchar(100)	¿É¿Õ
-	 */
-	private String name;
-	/**
-	 * Model	ĞÍºÅ	nvarchar(100)	·Ç¿Õ
-	 */
-	private String model;
-	/**
-	 * Class	·ÖÀà±àºÅ	nvarchar(1000)	·Ç¿Õ£¨¶ÔÓ¦Éè±¸ĞÍºÅ·ÖÀà±íÖĞµÄ±àºÅ£©
-	 */
-	private ProductTypeClass TypeClass;
-	/**
-	 * Specification	¹æ¸ñ	nvarchar(1000)	¿É¿Õ
-	 */
-	private String specification;
-	
-	/**
-	 * Remark	±¸×¢	nvarchar(1000)	¿É¿Õ
-	 */
-	private String remark;
+    /**
+     * Name åç§° nvarchar(100) å¯ç©º
+     */
+    private String name;
+    /**
+     * Model å‹å· nvarchar(100) éç©º
+     */
+    private String model;
+    /**
+     * Class åˆ†ç±»ç¼–å· nvarchar(1000) éç©ºï¼ˆå¯¹åº”è®¾å¤‡å‹å·åˆ†ç±»è¡¨ä¸­çš„ç¼–å·ï¼‰
+     */
+    private ProductTypeClass TypeClass;
+    /**
+     * Specification è§„æ ¼ nvarchar(1000) å¯ç©º
+     */
+    private String specification;
 
-	public int getId() {
-		return id;
-	}
+    /**
+     * Remark å¤‡æ³¨ nvarchar(1000) å¯ç©º
+     */
+    private String remark;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getNum() {
-		return num;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setNum(String num) {
-		this.num = num;
-	}
+    public String getNum() {
+        return num;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setNum(String num) {
+        this.num = num;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getModel() {
-		return model;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setModel(String model) {
-		this.model = model;
-	}
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
 
 
-	public ProductTypeClass getTypeClass() {
-		return TypeClass;
-	}
+    public ProductTypeClass getTypeClass() {
+        return TypeClass;
+    }
 
-	public void setTypeClass(ProductTypeClass typeClass) {
-		TypeClass = typeClass;
-	}
+    public void setTypeClass(ProductTypeClass typeClass) {
+        TypeClass = typeClass;
+    }
 
-	public String getSpecification() {
-		return specification;
-	}
+    public String getSpecification() {
+        return specification;
+    }
 
-	public void setSpecification(String specification) {
-		this.specification = specification;
-	}
+    public void setSpecification(String specification) {
+        this.specification = specification;
+    }
 
-	public String getRemark() {
-		return remark;
-	}
+    public String getRemark() {
+        return remark;
+    }
 
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 
-	public ProductType() {
-		super();
-	}
-	@Override
-	public String toString() {
-		return "ProductType [id=" + id + ", num=" + num + ", name=" + name
-				+ ", model=" + model + ", TypeClass=" + TypeClass
-				+ ", specification=" + specification + ", remark=" + remark
-				+ "]";
-	}
+    public ProductType() {
+        super();
+    }
+
+    @Override
+    public String toString() {
+        return "ProductType [id=" + id + ", num=" + num + ", name=" + name
+                + ", model=" + model + ", TypeClass=" + TypeClass
+                + ", specification=" + specification + ", remark=" + remark
+                + "]";
+    }
 }

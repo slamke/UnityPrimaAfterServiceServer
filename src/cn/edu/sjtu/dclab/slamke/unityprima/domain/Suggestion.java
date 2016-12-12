@@ -1,102 +1,122 @@
 package cn.edu.sjtu.dclab.slamke.unityprima.domain;
 
 import java.util.Date;
+
 /**
- * Í¶Ëß½¨Òé±í ±íÃû£ºtb_Suggestion ËùÔÚÊı¾İ¿â£ºServiceInformationManageSystem
+ * æŠ•è¯‰å»ºè®®è¡¨ è¡¨åï¼štb_Suggestion æ‰€åœ¨æ•°æ®åº“ï¼šServiceInformationManageSystem
+ * 
  * @author sunke
- *
+ * 
  */
 public class Suggestion {
-	public static final String TABLE_NAME = "tb_Suggestion";
-	/**
-	 * Num	Í¶ËßºÍ½¨ÒéµÄ±àºÅ	nvarchar(50)	×Ô¶¯Ìí¼Ó1¿ÉÒÔÓÃĞ´ºÃµÄº¯Êı×Ô¶¯Ìí¼Ó
-	 */
-	private String Num;
-	/**
-	 * 	ÄÚÈİ	nvarchar(100)	
-	 */
-	private String Content;
-	
-	/**
-	 * 	Ìí¼ÓÊ±¼ä	datetime	
-	 */
-	private Date InsertTime;
-	/**
-	 * 	ÁªÏµÈË	nvarchar(50)	
-	 */
-	private String Contacts;
-	/**
-	 * 	ÁªÏµÈËµç»°	nvarchar(50)	
-	 */
-	private String ContactsTel;
-	/**
-	 * 	»Ø¸´Õß¹¤ºÅ	nvarchar(50)	
-	 */
-	private String ReplyEmpNum;
-	/**
-	 * 	»Ø¸´Ê±¼ä	datetime	
-	 */
-	private Date ReplyTime;
-	/**
-	 * 	ÍùÀ´¶ÌĞÅ	nvarchar(MAX)
-	 */
-	private String SMS;
-	/**
-	 * Remark	±¸×¢	nvarchar(MAX)	
-	 */
-	private String Remark;
-	public String getNum() {
-		return Num;
-	}
-	public void setNum(String num) {
-		Num = num;
-	}
-	public String getContent() {
-		return Content;
-	}
-	public void setContent(String content) {
-		Content = content;
-	}
-	public Date getInsertTime() {
-		return InsertTime;
-	}
-	public void setInsertTime(Date insertTime) {
-		InsertTime = insertTime;
-	}
-	public String getContacts() {
-		return Contacts;
-	}
-	public void setContacts(String contacts) {
-		Contacts = contacts;
-	}
-	public String getContactsTel() {
-		return ContactsTel;
-	}
-	public void setContactsTel(String contactsTel) {
-		ContactsTel = contactsTel;
-	}
-	public String getReplyEmpNum() {
-		return ReplyEmpNum;
-	}
-	public void setReplyEmpNum(String replyEmpNum) {
-		ReplyEmpNum = replyEmpNum;
-	}
-	public Date getReplyTime() {
-		return ReplyTime;
-	}
-	public void setReplyTime(Date replyTime) {
-		ReplyTime = replyTime;
-	}
-	public String getSMS() {
-		return SMS;
-	}
-	public void setSMS(String sMS) {
-		SMS = sMS;
-	}
-	public String getRemark() {
-		return Remark;
-	}
-	public void setRemark(String remark) {
-		Remark = remark;
-	}
+    public static final String TABLE_NAME = "tb_Suggestion";
+    /**
+     * Num æŠ•è¯‰å’Œå»ºè®®çš„ç¼–å· nvarchar(50) è‡ªåŠ¨æ·»åŠ 1å¯ä»¥ç”¨å†™å¥½çš„å‡½æ•°è‡ªåŠ¨æ·»åŠ 
+     */
+    private String Num;
+    /**
+     * å†…å®¹ nvarchar(100)
+     */
+    private String Content;
+
+    /**
+     * æ·»åŠ æ—¶é—´ datetime
+     */
+    private Date InsertTime;
+    /**
+     * è”ç³»äºº nvarchar(50)
+     */
+    private String Contacts;
+    /**
+     * è”ç³»äººç”µè¯ nvarchar(50)
+     */
+    private String ContactsTel;
+    /**
+     * å›å¤è€…å·¥å· nvarchar(50)
+     */
+    private String ReplyEmpNum;
+    /**
+     * å›å¤æ—¶é—´ datetime
+     */
+    private Date ReplyTime;
+    /**
+     * å¾€æ¥çŸ­ä¿¡ nvarchar(MAX)
+     */
+    private String SMS;
+    /**
+     * Remark å¤‡æ³¨ nvarchar(MAX)
+     */
+    private String Remark;
+
+    public String getNum() {
+        return Num;
+    }
+
+    public void setNum(String num) {
+        Num = num;
+    }
+
+    public String getContent() {
+        return Content;
+    }
+
+    public void setContent(String content) {
+        Content = content;
+    }
+
+    public Date getInsertTime() {
+        return InsertTime;
+    }
+
+    public void setInsertTime(Date insertTime) {
+        InsertTime = insertTime;
+    }
+
+    public String getContacts() {
+        return Contacts;
+    }
+
+    public void setContacts(String contacts) {
+        Contacts = contacts;
+    }
+
+    public String getContactsTel() {
+        return ContactsTel;
+    }
+
+    public void setContactsTel(String contactsTel) {
+        ContactsTel = contactsTel;
+    }
+
+    public String getReplyEmpNum() {
+        return ReplyEmpNum;
+    }
+
+    public void setReplyEmpNum(String replyEmpNum) {
+        ReplyEmpNum = replyEmpNum;
+    }
+
+    public Date getReplyTime() {
+        return ReplyTime;
+    }
+
+    public void setReplyTime(Date replyTime) {
+        ReplyTime = replyTime;
+    }
+
+    public String getSMS() {
+        return SMS;
+    }
+
+    public void setSMS(String sMS) {
+        SMS = sMS;
+    }
+
+    public String getRemark() {
+        return Remark;
+    }
+
+    public void setRemark(String remark) {
+        Remark = remark;
+    }
 }

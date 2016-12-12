@@ -3,90 +3,90 @@ package cn.edu.sjtu.dclab.slamke.unityprima.domain;
 import java.sql.Timestamp;
 
 /**
- * ¶ÌĞÅ·¢ËÍ±í ±íÃû£ºWSend ËùÔÚÊı¾İ¿â£ºhaduosmsserver
+ * çŸ­ä¿¡å‘é€è¡¨ è¡¨åï¼šWSend æ‰€åœ¨æ•°æ®åº“ï¼šhaduosmsserver
+ * 
  * @author sunke
- *
+ * 
  */
 public class WSend {
-	public static final String TABLE_NAME ="WSend";
-	
-	/**
-	 * mbno	½ÓÊÕÊÖ»úºÅ	varchar(30)	·Ç¿Õ
-	 */
-	private String mbno;
-	/**
-	 * SMS	¶ÌĞÅÄÚÈİ	varchar(700)	·Ç¿Õ
-	 */
-	private String SMS;
-	
-	/**
-	 * Wtime	Ğ´ÈëµÄÊ±¼ä	datetime	·Ç¿Õ
-	 */
-	private Timestamp wTime;
-	
-	/**
-	 * SendSN	·¢ËÍÕËºÅ	varchar(20)	Í³Ò»ÓÃ£º50002
-	 */
-	private String sendSN;
-	
-	/**
-	 * SubAccount	×ÓÕËºÅ	varchar(10)	Í³Ò»ÓÃ£º1111
-	 */
-	private String subAccount;
+    public static final String TABLE_NAME = "WSend";
 
-	public String getMbno() {
-		return mbno;
-	}
+    /**
+     * mbno æ¥æ”¶æ‰‹æœºå· varchar(30) éç©º
+     */
+    private String mbno;
+    /**
+     * SMS çŸ­ä¿¡å†…å®¹ varchar(700) éç©º
+     */
+    private String SMS;
 
-	public void setMbno(String mbno) {
-		this.mbno = mbno;
-	}
+    /**
+     * Wtime å†™å…¥çš„æ—¶é—´ datetime éç©º
+     */
+    private Timestamp wTime;
 
-	public String getSMS() {
-		return SMS;
-	}
+    /**
+     * SendSN å‘é€è´¦å· varchar(20) ç»Ÿä¸€ç”¨ï¼š50002
+     */
+    private String sendSN;
 
-	public void setSMS(String sMS) {
-		SMS = sMS;
-	}
-	
-	public Timestamp getwTime() {
-		return wTime;
-	}
+    /**
+     * SubAccount å­è´¦å· varchar(10) ç»Ÿä¸€ç”¨ï¼š1111
+     */
+    private String subAccount;
 
-	public void setwTime(Timestamp wTime) {
-		this.wTime = wTime;
-	}
+    public String getMbno() {
+        return mbno;
+    }
 
-	public String getSendSN() {
-		return sendSN;
-	}
+    public void setMbno(String mbno) {
+        this.mbno = mbno;
+    }
 
-	public void setSendSN(String sendSN) {
-		this.sendSN = sendSN;
-	}
+    public String getSMS() {
+        return SMS;
+    }
 
-	public String getSubAccount() {
-		return subAccount;
-	}
+    public void setSMS(String sMS) {
+        SMS = sMS;
+    }
 
-	public void setSubAccount(String subAccount) {
-		this.subAccount = subAccount;
-	}
+    public Timestamp getwTime() {
+        return wTime;
+    }
 
-	public WSend(String mbno, String sMS, Timestamp wTime, String sendSN,
-			String subAccount) {
-		super();
-		this.mbno = mbno;
-		SMS = sMS;
-		this.wTime = wTime;
-		this.sendSN = sendSN;
-		this.subAccount = subAccount;
-	}
+    public void setwTime(Timestamp wTime) {
+        this.wTime = wTime;
+    }
 
-	public WSend() {
-		super();
-	}
-	
-	
+    public String getSendSN() {
+        return sendSN;
+    }
+
+    public void setSendSN(String sendSN) {
+        this.sendSN = sendSN;
+    }
+
+    public String getSubAccount() {
+        return subAccount;
+    }
+
+    public void setSubAccount(String subAccount) {
+        this.subAccount = subAccount;
+    }
+
+    public WSend(String mbno, String sMS, Timestamp wTime, String sendSN,
+            String subAccount) {
+        super();
+        this.mbno = mbno;
+        SMS = sMS;
+        this.wTime = wTime;
+        this.sendSN = sendSN;
+        this.subAccount = subAccount;
+    }
+
+    public WSend() {
+        super();
+    }
+
 }
